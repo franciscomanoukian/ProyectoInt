@@ -4,8 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let homeRouter = require('./routes/home');
+let productoRouter = require('./routes/producto')
+let registrarmeRouter = require('./routes/registrarme');
+let loginRouter = require('./routes/login');
+let perfilRouter = require('./routes/perfil');
 
 var app = express();
 
@@ -19,8 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', homeRouter);
+app.use('/producto', productoRouter); // <---------------- Esto viene de la etiqueta a de cada producto individual
+app.use('/registrarme', registrarmeRouter);
+app.use('/login', loginRouter);
+app.use('/perfil', perfilRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
