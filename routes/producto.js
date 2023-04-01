@@ -7,4 +7,4 @@ router.get('/', function(req, res) {
   
 module.exports = router;
   
-//producto/add 
+// hacer producto/add 
