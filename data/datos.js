@@ -7,7 +7,7 @@ let datos = {
     productos: [
         {
             imagen: ss,
-            nombre: 'Nike Blazer',
+            nombre: 'Nike Blazer Jumbo',
             descripcion: ss,
             fechaCarga: ss
         },
@@ -37,7 +37,7 @@ let datos = {
         },
         {
             imagen: ss,
-            nombre: 'Adidas Forum',
+            nombre: 'Nike Blazer Low',
             descripcion: ss,
             fechaCarga: ss
         },
@@ -55,13 +55,13 @@ let datos = {
         },
         {
             imagen: ss,
-            nombre: 'Vans White Sk8',
+            nombre: 'Off White Orange',
             descripcion: ss,
             fechaCarga: ss
         },
         {
             imagen: ss,
-            nombre: 'Reebok Classics',
+            nombre: 'Adidas Samba',
             descripcion: ss,
             fechaCarga: ss
         }
