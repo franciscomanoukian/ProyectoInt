@@ -22,7 +22,7 @@ let datos = {
         },
         {
             imagen: '/images/products/goldengoose.jpeg',
-            nombre: 'Golden Goose Superstar',
+            nombre: 'Golden Goose Star',
             descripcion: "Las zapatillas 'Superstar' de Golden Goose han sido cepilladas y enceradas a mano para darles la apariencia y la sensación de unos viejos favoritos. Confeccionadas en cuero suave, este par blanco está decorado con la aplicación de estrella característica de la marca. Úsalas durante el fin de semana con una camiseta y unos jeans.",
             fechaCarga: '01-04-2023',
             id : 3
@@ -50,14 +50,14 @@ let datos = {
         },
         {
             imagen: '/images/products/zadigwhite.jpeg',
-            nombre: 'Z&V High Flash White',
+            nombre: 'Z&V High Flash',
             descripcion: "Icónicas y esenciales, las zapatillas altas ZV1747 High Flash están disponibles en piel blanca tono sobre tono. Plantilla cuña de 2,5 cm.Este modelo calza normal, te recomendamos que cojas tu talla habitua",
             fechaCarga: '01-04-2023',
             id : 7
         },
         {
             imagen: '/images/products/zadigcanvas.jpeg',
-            nombre: 'Z&V High Flash Canvas',
+            nombre: 'Z&V High Canvas',
             descripcion: "Las zapatillas de alta gama ZV1747 High Flash están disponibles esta temporada en lona de algodón. Presentan bordes crudos, destellos pespunteados, cordones contrastantes y cierre de cremallera.",
             fechaCarga: '01-04-2023',
             id : 8
