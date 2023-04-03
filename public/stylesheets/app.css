@@ -6,9 +6,9 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #4B50D1;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --purple: #4B50D1;
+  --white: #fcfcfc;
+  --purple: #4B50D1;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
@@ -70,7 +70,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--purple);
 }
 
 .main-header_home-link,
@@ -156,7 +156,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/bannerCROP.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -271,7 +271,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--purple);
   font-size: 3.5em;
 }
 
@@ -371,7 +371,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: var(--purple);
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -510,7 +510,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: var(--white);
   }
 
   .left-navbar li {
