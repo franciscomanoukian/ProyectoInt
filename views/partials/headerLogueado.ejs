@@ -35,11 +35,11 @@
 	
 				<ul class="right-navbar">
 					<li><a href="/perfil"> <!-- aca antes decia profile.html -->
-							Nombre del usuario <i class="fas fa-user"></i>
+						<%-datosUsuario.nombreUsuario %>  <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="" method="post">
+						<form action="/" method="GET"> <!-- a>le cambiamos el metodo para que ande, era POST -->
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>

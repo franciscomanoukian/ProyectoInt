@@ -2,7 +2,12 @@ let datos = {
     usuario: {
         nombreUsuario: "DelfiAlric",
         clave: "Programacion",
-        recordarme: true // Va o no va??????
+        recordarme: true, // Va o no va??????
+        email: "ddd@gmail.com",
+        fechaNacimiento: 22-12-03,
+        dni: 36473829,
+        fotoPerfil: "/images/users/default-image.png"
+
     },
     productos: [
         {
