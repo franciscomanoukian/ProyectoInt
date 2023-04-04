@@ -31,7 +31,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: var(--purple);
 }
 
 ul,
@@ -156,7 +156,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/chanclas-banner.png);
+  background-image: url(/images/banner-largo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -178,7 +178,7 @@ hr {
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
