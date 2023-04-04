@@ -1,6 +1,6 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap');
 
 
 
@@ -8,10 +8,10 @@
 :root {
   --purple: #4B50D1;
   --white: #fcfcfc;
-  --purple: #4B50D1;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
+  --black: #1a0644;
   --base-font-family: 'Monsterrat', sans-serif
 }
 
@@ -44,7 +44,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: #fcfcfc;
 }
 
 figure {
@@ -173,7 +173,8 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: var(--white);
+  font-family: 'Montserrat';
 }
 
 .product-box {
@@ -510,7 +511,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--white);
+    color: var(--black);
   }
 
   .left-navbar li {
