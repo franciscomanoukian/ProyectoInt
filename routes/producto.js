@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.get('/detalle/id/:id?', productoController.detail);
 router.get('/edit/id', productoController.edit)
+router.get('/add', productoController.add)
   
 module.exports = router;
   

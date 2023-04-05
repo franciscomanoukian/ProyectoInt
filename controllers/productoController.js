@@ -8,6 +8,11 @@ let productoController = {
         return res.render('product-add', {
             datosUsuario: db.usuario
         })
+    },
+    add: function (req, res) {
+        return res.render('product-add', {
+            datosUsuario: db.usuario
+        })
     }
 }
 module.exports = productoController
