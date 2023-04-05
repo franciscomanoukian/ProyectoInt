@@ -9,6 +9,7 @@ let registrarmeRouter = require('./routes/registrarme');
 let loginRouter = require('./routes/login');
 let perfilRouter = require('./routes/perfil');
 let productoRouter = require('./routes/producto')
+let searchResultsRouter = require('./routes/searchResults');
 
 var app = express();
 
@@ -26,7 +27,8 @@ app.use('/', homeRouter);
 app.use('/registrarme', registrarmeRouter);// <---------------- Esto viene de la etiqueta a de cada producto individual
 app.use('/login', loginRouter);
 app.use('/perfil', perfilRouter);
-app.use('/producto', productoRouter)
+app.use('/producto', productoRouter);
+app.use('/search-results', searchResultsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
