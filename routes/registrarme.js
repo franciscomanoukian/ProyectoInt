@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
+let registroController = require('../controllers/registroController')
 
-router.get('/', function(req, res) {
-    res.render('register');
-});
-  
+router.get('/', registroController.registrar);
+
 module.exports = router;
