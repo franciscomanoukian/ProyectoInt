@@ -603,6 +603,11 @@ textarea.form-input {
   color: white;
 }
 
+.fotoregistro{
+  float: left;
+  width: 50%;
+  margin-left: 150px;
+}
 
 /*====== Product add form ======*/
 
