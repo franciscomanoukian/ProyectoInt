@@ -554,10 +554,11 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: var(--white);
+  color: var(--purple);
   padding: 10px 20px;
   border-radius: 4px;
-  color: #fff;
+  font-family: var(--base-font-family);
 }
 
 /*====== Registrarme form ======*/
