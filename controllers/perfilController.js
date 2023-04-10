@@ -2,12 +2,12 @@ let db = require("../data/datos"); //importando la lista, para mandarla a render
 let perfilController = {
     detail: function(req, res){
         return res.render('profile', {
-            datosUsuario: db.usuario
+            datosUsuario: db.usuario, lista: db.productos
         })
     },
     edit: function (req, res) {
         return res.render('profile-edit', {
-            datosUsuario: db.usuario
+            datosUsuario: db.usuario, lista: db.productos
         })
     }
 }
