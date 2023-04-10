@@ -2,7 +2,7 @@ let db = require("../data/datos"); //importando la lista, para mandarla a render
 let mainController = {
     index: function(req, res) {
         res.render('home', {
-            lista: db.productos //esto busca y envia los datos y los manipulamos en el ejs con variable lista
+            lista: db.productos, comentarios: db.comentarios //esto busca y envia los datos y los manipulamos en el ejs con variable lista
         });
     }
 }
