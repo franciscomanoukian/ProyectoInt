@@ -28,11 +28,26 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
-
+			<div class="container products-wrapper">
+				<div class="row">
+					<%for (let i=0; i<4 ; i++){ %>
+					<div class="col-12 col-sm-6 col-lg-3">
+					
+						<section class="product-box">
+							<a href="/producto/detalle/id/<%=lista[i].id%>"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
+								<figure class="product-box_image">
+									<img src="<%=lista[i].imagen%>" alt="<%=lista[i].nombre%>">
+								</figure>
+								<article class="product-box_data">
+									<h2><%=lista[i].nombre%></h2>
+									<p><%=lista[i].descripcion%></p>
+									<p>Comentarios: !!!!!</p> 
+								</article>
+							</a>
+						</section>
+						
+					</div>
+					<%}%>
 
 	<!-- footer -->
 	<%- include("./partials/footer") %>

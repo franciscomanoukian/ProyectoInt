@@ -14,5 +14,6 @@ let productoController = {
             datosUsuario: db.usuario
         })
     }
+    
 }
 module.exports = productoController
