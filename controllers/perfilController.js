@@ -7,7 +7,7 @@ let perfilController = {
     },
     edit: function (req, res) {
         return res.render('profile-edit', {
-            datosUsuario: db.usuario, lista: db.productos
+            datosUsuario: db.usuario
         })
     }
 }
