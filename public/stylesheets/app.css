@@ -562,52 +562,89 @@ textarea.form-input {
 
 .registroform {
   display: flex;
-  flex-direction: row;
-  align-items: left;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  font-family: "Montserrat";
-}
-
-.registroform label {
-  font-weight: bold;
-  margin-right: 10px;
-  flex-basis: 100%;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  font-family: var(--base-font-family);
+  color: white;
+  margin-top: 30px;
+  font-size: 15px;
 }
 
 .registroformlabel {
-  padding: 10px;
-  margin-top: 5px;
-  margin-right: 10px;
-  margin-bottom: 15px;
-  flex-grow: 1;
-  border: none;
+  font-weight: bold;
+}
+
+.registroinput {
+  padding: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
-  font-family: "Montserrat";
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
 }
 
 .registrobutton {
   padding: 10px 20px;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  border: none;
   border-radius: 5px;
+  border: none;
   background-color: var(--white);
   color: var(--purple);
   font-size: 16px;
-  cursor: pointer;
-  font-family: "Montserrat";
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-family: var(--base-font-family);
+  margin-top: 30px;
 }
 
-.registrobutton:hover {
-  padding-left: 15px;
-  background-color: #006F8E;
+.registrobutton:hover{
+  background-color: var(--purple);
+  color: white;
 }
+
+
+/*====== Product add form ======*/
+
+.agregarproductoform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+}
+
+.textproduct {
+  margin: 20px;
+}
+
+.inputproduct {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-family: "Montserrat", sans-serif;
+}
+
+.addproductbutton {
+  padding: 10px 20px;
+  background-color: var(--purple);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+}
+
+.addproductbutton:hover {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+
 
 
 /*====== Media-Queries ======*/

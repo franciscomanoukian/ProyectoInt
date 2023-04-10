@@ -30,16 +30,16 @@
 			<!-- Show the "ultimos" products -->
 			
 			<form action="/login" method="GET" class="registroform"> <!-- aca antes decia login.html -->
-				<label class = "registroformlabel">EMAIL</label><input type="email" placeholder="EMAIL">
-				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input type="text" placeholder="USUARIO">
-				<label class = "registroformlabel">CONTRASEÑA</label><input type="password" placeholder="CONTRASEÑA">
-				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input type="date" placeholder="FECHA NACIMIENTO">
-				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input type="number" placeholder="NRO DOCUMENTO"> 
-				<label class = "registroformlabel">FOTO DE PERFIL</label><input type="text" placeholder="FOTO DE PERFIL">
+				<label class = "registroformlabel">EMAIL</label><input type="email" placeholder="EMAIL" class="registroinput">
+				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input type="text" placeholder="USUARIO" class="registroinput">
+				<label class = "registroformlabel">CONTRASEÑA</label><input type="password" placeholder="CONTRASEÑA" class="registroinput">
+				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input type="date" placeholder="FECHA NACIMIENTO" class="registroinput">
+				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input type="number" placeholder="NRO DOCUMENTO" class="registroinput"> 
+				<label class = "registroformlabel">FOTO DE PERFIL</label><input type="text" placeholder="FOTO DE PERFIL" class="registroinput">
+				<button type="submit" class ="registrobutton"> REGISTRARME </button>
 			</form>
 
-			<button type="submit" class ="registrobutton"> REGISTRARME </button>
-
+			
 
 	<!-- footer -->
 	<%- include("./partials/footer") %>
