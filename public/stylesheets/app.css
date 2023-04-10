@@ -561,6 +561,14 @@ textarea.form-input {
   font-family: var(--base-font-family);
 }
 
+.btn:hover{
+  background-color: var(--purple);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: var(--base-font-family);
+}
+
 /*====== Registrarme form ======*/
 
 .registroform {
