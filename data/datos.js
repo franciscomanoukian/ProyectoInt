@@ -85,7 +85,7 @@ let datos = {
     comentarios: [
         {
             nombreUsuario: 'FranManoukian',
-            textoComentario: 'FAcheras',
+            textoComentario: 'Facheras',
             imagenPerfil: null
         },
         {
