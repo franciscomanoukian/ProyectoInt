@@ -44,7 +44,6 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: #fcfcfc;
 }
 
 figure {
@@ -77,6 +76,7 @@ hr {
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
+  color: var(--white);
 }
 
 .main-header_credit-link {
@@ -128,11 +128,13 @@ hr {
 .main-navbar {
   margin-top: 20px;
   display: none;
+  color: var(--white);
 }
 
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+  color: white; 
 }
 
 .logout{
@@ -140,10 +142,12 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white);
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: var(--black);
 }
 
 .left-navbar a,
@@ -153,6 +157,9 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
+.main-navbar a{
+  color: var(--white);
+}
 
 
 /*====== Banner ======*/
@@ -321,6 +328,7 @@ hr {
   border-right: 1px solid var(--light-gray);
   padding: 15px;
   /* height: 100%; */
+
 }
 
 .product-detail-title {
@@ -332,6 +340,11 @@ hr {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
   line-height: 1.5;
+}
+
+.product-detail-description a{
+  font-family: var(--base-font-family);
+  color: var(--white);
 }
 
 .product-detail-price {
@@ -383,6 +396,7 @@ hr {
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+  font-family: var(--base-font-family);
 }
 
 .action-button {
@@ -447,6 +461,7 @@ hr {
   border: none;
   border: solid 1px var(--gray);
   padding: 0 15px;
+  font-family: var(--base-font-family);
 }
 
 .error{
@@ -458,6 +473,66 @@ textarea.form-input {
   min-height: 140px;
   resize: vertical;
   padding: 15px;
+}
+
+/*====== Login form ======*/
+
+.loginform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-family: var(--base-font-family);
+  font-size: 20px; 
+  color: var(--purple);
+}
+
+.loginform label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.loginform input[type="email"],
+.loginform input[type="password"] {
+  padding: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.loginform input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.loginform button[type="submit"] {
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--purple);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-family: var(--base-font-family);
+}
+
+.loginform button[type="submit"]:hover {
+  background-color: var(--white);
+  color: var(--purple); 
 }
 
 /*====== Profile ======*/
@@ -483,6 +558,57 @@ textarea.form-input {
   color: #fff;
 }
 
+/*====== Registrarme form ======*/
+
+.registroform {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Montserrat";
+}
+
+.registroform label {
+  font-weight: bold;
+  margin-right: 10px;
+  flex-basis: 100%;
+}
+
+.registroformlabel {
+  padding: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: "Montserrat";
+}
+
+.registrobutton {
+  padding: 10px 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--white);
+  color: var(--purple);
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Montserrat";
+}
+
+.registrobutton:hover {
+  padding-left: 15px;
+  background-color: #006F8E;
+}
+
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
@@ -506,6 +632,7 @@ textarea.form-input {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
   }
 
   .left-navbar a,
