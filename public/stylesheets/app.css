@@ -12,7 +12,7 @@
   --light-gray: #ebebeb;
   --green: #39b54a;
   --black: #1a0644;
-  --base-font-family: 'Monsterrat', sans-serif
+  --base-font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -29,7 +29,7 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: "Roboto";
   font-weight: 300;
   background-color: var(--purple);
 }
@@ -71,6 +71,7 @@ hr {
 .main-header {
   padding: 15px 0;
   background-color: var(--purple);
+  font-family: var(--base-font-family);
 }
 
 .main-header_home-link,
@@ -174,7 +175,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--white);
-  font-family: 'Montserrat';
+  font-family: var(--base-font-family);
 }
 
 .product-box {
@@ -206,6 +207,7 @@ hr {
   font-weight: 300;
   margin: 0;
   color: #666666;
+  font-family: var(--base-font-family);
 }
 
 .product-box_data span {
@@ -281,6 +283,7 @@ hr {
   color: var(--gray);
   font-size: 2.4em;
   font-weight: 400;
+  font-family: var(--base-font-family);
 }
 
 .footer-data p {
