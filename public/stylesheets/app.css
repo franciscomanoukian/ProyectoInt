@@ -498,8 +498,8 @@ textarea.form-input {
   margin-right: 10px;
 }
 
-.loginform input[type="email"],
-.loginform input[type="password"] {
+.logintype,
+.logintype {
   padding: 10px;
   margin-top: 5px;
   margin-right: 10px;
@@ -511,13 +511,13 @@ textarea.form-input {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-.loginform input[type="checkbox"] {
+.logincheck {
   margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-.loginform button[type="submit"] {
+.submitbutton {
   padding: 10px 20px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -531,7 +531,7 @@ textarea.form-input {
   font-family: var(--base-font-family);
 }
 
-.loginform button[type="submit"]:hover {
+.submitbutton:hover {
   background-color: var(--white);
   color: var(--purple); 
 }
