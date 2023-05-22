@@ -9,7 +9,7 @@ let registroController = {
     store: function(req, res){
         let form = req.body;
         let email = form.email;
-        res.redirect('/login');  //aca deberia usar un metodo de sequelize para guardar datos. Dentro del then deberia redireccionar a otra ruta
+        return res.redirect('/login');  //aca deberia usar un metodo de sequelize para guardar datos. Dentro del then deberia redireccionar a otra ruta
 
 }}
 module.exports = registroController;
