@@ -35,12 +35,12 @@ module.exports = function(sequelize, dataTypes){
         comentarios.belongsTo(models.Producto, {
             as: "producto",
             foreignKey: "id_post"
-        },
+        }),
         comentarios.belongsTo(models.Usuario, {
             as : "usuario",
             foreignKey: "id_usuario"
         })
-        );
+        ;
         
     }
 }
