@@ -7,16 +7,16 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER, 
         },
         email: {
-            type: dataTypes.STRING(300),
+            type: dataTypes.STRING
         }, 
         contraseña: {
-            type: dataTypes.STRING(500),
+            type: dataTypes.STRING
         },
         fotoPerfil: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING
         }, 
         dni: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER
         }, 
         createdAt: {
             type: dataTypes.DATE
@@ -29,20 +29,21 @@ module.exports = function (sequelize, dataTypes) {
         }, 
     };
     let config = { 
+        tableName: 'usuarios'
     };
 
     let usuarios = sequelize.define(alias, cols, config);
 
-    usuarios.associate = function(models){
-        usuarios.hasMany(models.Producto, {
-            as: "productos",
-            foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
-        })
-        usuarios.hasMany(models.Comentario, {
-            as: "comentarios", 
-            foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
-        })
-    }
+    // usuarios.associate = function(models){
+    //     usuarios.hasMany(models.Producto, {
+    //         as: "productos",
+    //         foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
+    //     })
+    //     usuarios.hasMany(models.Comentario, {
+    //         as: "comentarios", 
+    //         foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
+    //     })
+    // }
 
     return usuarios;
 }

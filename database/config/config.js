@@ -1,4 +1,4 @@
-let config ={
+module.exports ={
   "development": {
     "username": "root",
     "password": "root",
