@@ -12,7 +12,7 @@ module.exports = function (sequelize, dataTypes) {
         contraseña: {
             type: dataTypes.STRING
         },
-        fotoPerfil: {
+        foto_perfil: {
             type: dataTypes.STRING
         }, 
         dni: {

@@ -2,7 +2,7 @@ let db = require("../database/models"); //importando la lista, para mandarla a r
 
 let mainController = {
     index: function(req, res){
-        db.Producto.findAll({
+        db.Usuario.findAll({
           
           }).then( function(moviesAll){
                   return res.send(moviesAll);
