@@ -1,4 +1,5 @@
-let db = require("../data/datos"); //importando la lista, para mandarla a renderizar en mi objeto literal, para mostrar productos 
+let db = require("../data/datos"); //importando la lista, para mandarla a renderizar en mi objeto literal, para mostrar productos
+
 let perfilController = {
     detail: function(req, res){
         return res.render('profile', {
@@ -11,4 +12,5 @@ let perfilController = {
         })
     }
 }
+
 module.exports = perfilController
