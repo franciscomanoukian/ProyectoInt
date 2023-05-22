@@ -32,6 +32,7 @@ module.exports = function(sequelize, dataTypes){
         deletedAt: "deleted_at"
     };
     let comentarios = sequelize.define(alias, cols, conf);
+    
     // comentarios.associate = function(models){
     //     comentarios.belongsTo(models.Producto, {
     //         as: "producto",
