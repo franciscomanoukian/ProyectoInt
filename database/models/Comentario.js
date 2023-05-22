@@ -25,24 +25,24 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.DATE
         }
     };
-    let conf ={ 
+    let config ={ 
         tableName: 'comentarios',
         createdAt: "created_at",
         updatedAt: "updated_at",
         deletedAt: "deleted_at"
     };
-    let comentarios = sequelize.define(alias, cols, conf);
-    // comentarios.associate = function(models){
-    //     comentarios.belongsTo(models.Producto, {
-    //         as: "producto",
-    //         foreignKey: "id_post"
-    //     }),
-    //     comentarios.belongsTo(models.Usuario, {
-    //         as : "usuario",
-    //         foreignKey: "id_usuario"
-    //     })
-    //     ;
+    let comentarios = sequelize.define(alias, cols, config);
+    comentarios.associate = function(models){
+        comentarios.belongsTo(models.Producto, {
+            as: "producto",
+            foreignKey: "id_post"
+        }),
+        comentarios.belongsTo(models.Usuario, {
+            as : "usuario",
+            foreignKey: "id_usuario"
+        })
+        ;
         
-    // }
+    }
     return comentarios
 }

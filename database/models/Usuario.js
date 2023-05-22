@@ -34,16 +34,16 @@ module.exports = function (sequelize, dataTypes) {
 
     let usuarios = sequelize.define(alias, cols, config);
 
-    // usuarios.associate = function(models){
-    //     usuarios.hasMany(models.Producto, {
-    //         as: "productos",
-    //         foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
-    //     })
-    //     usuarios.hasMany(models.Comentario, {
-    //         as: "comentarios", 
-    //         foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
-    //     })
-    // }
+    usuarios.associate = function(models){
+        usuarios.hasMany(models.Producto, {
+            as: "productos",
+            foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
+        })
+        usuarios.hasMany(models.Comentario, {
+            as: "comentarios", 
+            foreignKey: "id_usuario" //id_usuario es la fk que esta definida en Comentarios pero vinculando mi tabla 
+        })
+    }
 
     return usuarios;
 }
