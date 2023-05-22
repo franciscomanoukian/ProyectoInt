@@ -2,7 +2,7 @@ let config ={
   "development": {
     "username": "root",
     "password": "",
-    "database": "database_development",
+    "database": "proyectoIntDB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
