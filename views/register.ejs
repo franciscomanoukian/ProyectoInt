@@ -16,15 +16,15 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<form action="/login" method="GET" class="registroform"> <!-- aca antes decia login.html -->
-				<label class = "registroformlabel">EMAIL</label><input type="email" placeholder="EMAIL" class="registroinput">
-				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input type="text" placeholder="USUARIO" class="registroinput">
-				<label class = "registroformlabel">CONTRASEÑA</label><input type="password" placeholder="CONTRASEÑA" class="registroinput">
-				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input type="date" placeholder="FECHA NACIMIENTO" class="registroinput">
-				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input type="number" placeholder="NRO DOCUMENTO" class="registroinput"> 
-				<label class = "registroformlabel">FOTO DE PERFIL</label><input type="text" placeholder="FOTO DE PERFIL" class="registroinput">
+			<form action="/login" method="POST" class="registroform"> <!-- aca antes decia login.html -->
+				<label class = "registroformlabel">EMAIL</label><input name="email" type="email" placeholder="EMAIL" class="registroinput">
+				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input name="usuario" type="text" placeholder="USUARIO" class="registroinput">
+				<label class = "registroformlabel">CONTRASEÑA</label><input name="contra" type="password" placeholder="CONTRASEÑA" class="registroinput">
+				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input name="fechaNac" type="date" placeholder="FECHA NACIMIENTO" class="registroinput">
+				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input name="documento" type="number" placeholder="NRO DOCUMENTO" class="registroinput"> 
+				<label class = "registroformlabel">FOTO DE PERFIL</label><input name="fotoPerfil" type="text" placeholder="FOTO DE PERFIL" class="registroinput">
 				<button type="submit" class ="registrobutton"> REGISTRARME </button>
-			</form>
+			</form>		
 
 			<img src ="/images/registrofoto.jpg" alt ="fotaca" class ="fotoregistro"> 
 
