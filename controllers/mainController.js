@@ -1,9 +1,15 @@
 let db = require("../database/models"); //importando la lista, para mandarla a renderizar en mi objeto literal, para mostrar productos 
+let datab = require("../data/datos")
 
 let mainController = {
-    index: function(req, res){
-        db.Producto.findAll({
-          
+    index: function(req, res) {
+        res.render('home', {
+            lista: datab.productos, comentarios: datab.comentarios //esto busca y envia los datos y los manipulamos en el ejs con variable lista
+        });
+    },
+    imprimirDb: function(req, res){
+        db.Usuario.findAll({
+
           }).then( function(moviesAll){
                   return res.send(moviesAll);
                   
@@ -11,14 +17,7 @@ let mainController = {
               .catch( function(error){
                   console.log(error);
               })
-          
-          
-  
     }
-    // index: function(req, res) {
-    //     res.render('home', {
-    //         lista: db.productos, comentarios: db.comentarios //esto busca y envia los datos y los manipulamos en el ejs con variable lista
-    //     });
-    // }
+   
 }
 module.exports = mainController
