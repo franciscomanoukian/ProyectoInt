@@ -2,7 +2,7 @@ let db = require("../database/models"); //importando la lista, para mandarla a r
 
 let mainController = {
     index: function(req, res){
-        db.Producto.findAll({
+        res.render("home", {lista: db.Producto.findAll({
           
           }).then( function(moviesAll){
                   return res.send(moviesAll);
@@ -10,9 +10,15 @@ let mainController = {
               })
               .catch( function(error){
                   console.log(error);
-              })
+              }), comentarios: db.Producto.findAll({
           
-          
+            }).then( function(moviesAll){
+                    return res.send(moviesAll);
+                    
+                })
+                .catch( function(error){
+                    console.log(error);
+                })})   
   
     }
     // index: function(req, res) {
