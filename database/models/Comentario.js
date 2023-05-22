@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "comentarios";
+    let alias = "Comentario";
     let cols = {
         id: {
             autoIncrement: true,
