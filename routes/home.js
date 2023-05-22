@@ -3,6 +3,7 @@ var router = express.Router();
 let mainController = require('../controllers/mainController')
 
 router.get('/', mainController.index);
+router.get('/imprimirdb', mainController.imprimirDb);
 
   
 module.exports = router;
