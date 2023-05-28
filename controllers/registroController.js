@@ -1,3 +1,6 @@
+let db = require('../database/models');
+let bcrypt = require('bcryptjs');
+
 let registroController = {
     registrar: function(req, res) {
         res.render('register', {
@@ -7,9 +10,49 @@ let registroController = {
 
     },
     store: function(req, res){
+        let tablaUsers = db.Usuario
         let form = req.body;
         let email = form.email;
-        return res.redirect('/login');  //aca deberia usar un metodo de sequelize para guardar datos. Dentro del then deberia redireccionar a otra ruta
+        let userName = form.usuario;
+        let contraseña = form.contra;
+        let fechaNac = form.fechaNac;
+        let dni = form.dni;
+        let fotoPerfil = form.fotoPerfil;
 
-}}
+        let filtrado = {
+            where: [{email: email}]
+        }
+        db.Usuario.findOne(filtrado) 
+            .then(function(result){
+                // VERIFICO condiciones del formulario, las guardamos mas abajo
+                // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
+                if (result != null) {
+                    return res.send('Email ya utilizado')
+                }
+                if (contraseña.length < 3) {
+                    return res.send('Contra menor a 3 car')
+                }
+                if (userName == '') {
+                    return res.send('Username es un campo obligatorio')
+                }
+                
+
+                // Si completó bien el form, se ejecuta lo siguiente para guardar en la DB:
+                db.Usuario.create({
+                    email: email,
+                    contraseña: bcrypt.hashSync(contraseña, 10),
+                    fotoPerfil: fotoPerfil,
+                    fecha: fechaNac,
+                    dni: dni
+                });
+
+                // Redireccionamos a Login
+                return res.redirect('/login')
+                
+              })
+              .catch( function(error){
+                  console.log(error);
+              })
+
+    }}
 module.exports = registroController;
