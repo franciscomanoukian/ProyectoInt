@@ -12,8 +12,8 @@ let mainController = {
             include: [
                 {association: "productos"},{association: "comentarios"} // Incluye relacioness
                 ]
-          }).then( function(moviesAll){
-                  return res.send(moviesAll);
+          }).then( function(result){
+                  return res.send(result);
                   
               })
               .catch( function(error){
