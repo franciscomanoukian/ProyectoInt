@@ -10,7 +10,7 @@ let mainController = {
     imprimirDb: function(req, res){
         db.Usuario.findAll({
             include: [
-                {association: "productos"}
+                {association: "productos"},{association: "comentarios"}
                 ]
           }).then( function(moviesAll){
                   return res.send(moviesAll);

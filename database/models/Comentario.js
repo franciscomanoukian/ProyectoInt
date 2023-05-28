@@ -15,21 +15,19 @@ module.exports = function(sequelize, dataTypes){
         texto: {
             type: dataTypes.STRING
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE
         },
-        updated_at:{
+        updatedAt:{
             type: dataTypes.DATE
         },
-        deleted_at:{
+        deletedAt:{
             type: dataTypes.DATE
         }
     };
     let config ={ 
         tableName: 'comentarios',
-        createdAt: "created_at",
-        updatedAt: "updated_at",
-        deletedAt: "deleted_at"
+        
     };
     let comentarios = sequelize.define(alias, cols, config);
     comentarios.associate = function(models){
