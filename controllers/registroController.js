@@ -26,15 +26,19 @@ let registroController = {
             .then(function(result){
                 // VERIFICO condiciones del formulario, las guardamos mas abajo
                 // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
+                if (email == '') {
+                    return res.send('Email es un campo obligatorio')
+                }
                 if (result != null) {
                     return res.send('Email ya utilizado')
-                }
-                if (contraseña.length < 3) {
-                    return res.send('Contra menor a 3 car')
                 }
                 if (userName == '') {
                     return res.send('Username es un campo obligatorio')
                 }
+                if (contraseña.length < 3) {
+                    return res.send('Contra menor a 3 car')
+                }
+                
                 
 
                 // Si completó bien el form, se ejecuta lo siguiente para guardar en la DB:
