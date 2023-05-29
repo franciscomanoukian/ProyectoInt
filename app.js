@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session'); // defino la variable session
 
 let homeRouter = require('./routes/home');
 let registrarmeRouter = require('./routes/registrarme');
@@ -29,6 +30,15 @@ app.use('/login', loginRouter);
 app.use('/perfil', perfilRouter);
 app.use('/producto', productoRouter);
 app.use('/search-results', searchResultsRouter);
+
+//Session se inicia antes de las rutas
+app.use(session(
+  {
+    secret:'notchanclas',
+    saveUninitialized: true,
+    resave: false
+  }
+));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -12,6 +12,7 @@ let loginController = {
         let filtrado = {
             where: [{email: email}]
         }
+        
         db.Usuario.findOne(filtrado) 
             .then(function(result){
                 // VERIFICO condiciones del formulario, las guardamos mas abajo
@@ -29,12 +30,45 @@ let loginController = {
                 let checkContra = bcrypt.compareSync(contra, contraEncriptada)
 
                 // Redireccionamos a Home
-                return res.send('todo recibido ok '+ email+ contra + ' Contra coincide?: '+checkContra)
-                
+                if (checkContra == true){
+                    res.redirect('/')
+                } else {
+                    res.send('Tu contraseña es incorrecta, volve a intentarlo')
+                }
               })
               .catch( function(error){
                   console.log(error);
               })
+            
+    }, 
+    processLogin: function(req, res){
+        //Tengo que buscar los datos de la db.
+
+        //Ponerlos en session.
+        let form = req.body; 
+
+        req.session.user = {
+             userName: form.usuario,
+             contraseña: form.contra,
+        }
+
+        //Preguntar si el usuario tildó el checkbox para recordarlo
+        // return res.send (req.body);
+        if(req.body.recordarme != undefined){
+            res.cookie('cookieUser', 'el dato que quiero guardar', {maxAge: 1000*60*123123123})
+        }
+
+        return res.send(req.session)
+        //Y si el usuario quiere, agregar la cookie para que lo recuerde.
+        
+    }, 
+    logout: function(req, res){
+         // destruir session
+         req.session.destroy();
+
+         //Destruyo la cookie
+ 
+         return res.redirect('/');
     }
 }
 module.exports = loginController
