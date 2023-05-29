@@ -10,7 +10,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nike Blazer Jumbo</h2> 
+			<h2 class="products-title"><%= result.nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/producto/edit/id/">Editar</a> <!-- aca antes decia product-add.html -->
 			</p>
@@ -18,45 +18,24 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/nikejumbo.jpeg" alt="" class="product-detail-img">
+					<img src="<%=result.imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Alabadas por muchos por su aspecto y su sensación de resistencia, el básico de armario se actualiza con las Nike Blazer Mid ' 77 Jumbo.Aprovecha el look clásico que más te gusta, que ahora cuenta con un talón elástico con textura de pana y unas presillas grandes para que puedas ponértelas y quitártelas fácilmente.El diseño Swoosh extragrande y los cordones enormes añaden un toque divertido.</p>
+						<%= result.descripcion%></p>
 				</article>
 				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/perfil">Nombre usuario: Juan22</a> </strong> 
-								Muy buenas.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/perfil">Nombre usuario: Ale22</a> </strong> <!-- aca antes decia profile.html -->
-									Malísimas no las compren.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/perfil">Nombre usuario: Delfi22</a> </strong>
-									Excelentes
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/perfil">Nombre usuario: Justi22</a> </strong>
-									Muy cómodas!</p>
-							</div>
-						</article>
+
+					<%for (let i=0; i<result.comentarios.length; i++){ %>
+						<section class="comments">
+							<article>
+								<img src="https://via.placeholder.com/35" alt="">
+								<div class="data">
+									<p class="user">
+									<strong> <a href="/perfil">Nombre usuario: <%= result.comentarios[i].id_usuario %></a> </strong> 
+									<%= result.comentarios[i].texto%></p>
+								</div>
+							</article>
+						<%}%>
+					
 						
 
 					</section>

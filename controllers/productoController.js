@@ -1,8 +1,23 @@
-let db = require("../data/datos");
+let db = require('../database/models');
 
 let productoController = {
     detail: function(req, res){
-        return res.render('product')
+        let id = req.params.id
+        
+        db.Producto.findByPk(id, {
+            include: [
+                {association: "usuario"},{association: "comentarios"} // Incluye relacioness
+                ]
+          })
+        .then(function(resultado){
+            return res.render('product', {result: resultado});
+            
+        })
+        .catch( function(error){
+            console.log(error);
+        })
+
+        
     },
     edit: function (req, res) {
         return res.render('product-add', {
