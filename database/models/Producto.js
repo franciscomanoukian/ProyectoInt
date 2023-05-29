@@ -21,6 +21,9 @@ module.exports = function (sequelize, dataTypes) {
         },
         updatedAt:{
             type: dataTypes.DATE
+        },
+        imagen:{
+            type: dataTypes.STRING
         }
     }
     let config = {

@@ -3,14 +3,24 @@ let datab = require("../data/datos")
 
 let mainController = {
     index: function(req, res) {
-        res.render('home', {
-            lista: datab.productos, comentarios: datab.comentarios //esto busca y envia los datos y los manipulamos en el ejs con variable lista
-        });
+        db.Producto.findAll({
+            include: [
+                {association: "usuario"},{association: "comentarios"} // Incluye relacioness
+                ]
+          }).then( function(result){
+                return res.render('home', {
+                    lista: result //esto busca y envia los datos y los manipulamos en el ejs con variable lista
+                });
+              })
+              .catch( function(error){
+                  console.log(error);
+              })
+        
     },
     imprimirDb: function(req, res){
-        db.Usuario.findAll({
+        db.Producto.findAll({
             include: [
-                {association: "productos"},{association: "comentarios"} // Incluye relacioness
+                {association: "usuario"},{association: "comentarios"} // Incluye relacioness
                 ]
           }).then( function(result){
                   return res.send(result);
