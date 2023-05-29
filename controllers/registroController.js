@@ -10,7 +10,6 @@ let registroController = {
 
     },
     store: function(req, res){
-        let tablaUsers = db.Usuario
         let form = req.body;
         let email = form.email;
         let userName = form.usuario;
