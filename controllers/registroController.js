@@ -16,7 +16,7 @@ let registroController = {
         let userName = form.usuario;
         let contraseña = form.contra;
         let fechaNac = form.fechaNac;
-        let dni = form.dni;
+        let dni = form.documento;
         let fotoPerfil = form.fotoPerfil;
 
         let filtrado = {
@@ -45,7 +45,7 @@ let registroController = {
                 db.Usuario.create({
                     email: email,
                     contraseña: bcrypt.hashSync(contraseña, 10),
-                    fotoPerfil: fotoPerfil,
+                    foto_perfil: fotoPerfil,
                     fecha: fechaNac,
                     dni: dni
                 });
