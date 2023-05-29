@@ -11,12 +11,22 @@ let registroController = {
     },
     store: function(req, res){
         let form = req.body;
+
         let email = form.email;
         let userName = form.usuario;
         let contraseña = form.contra;
         let fechaNac = form.fechaNac;
         let dni = form.documento;
         let fotoPerfil = form.fotoPerfil;
+
+        // let user ={
+        //     email: email, 
+        //     userName: userName, 
+        //     contraseña: contraseña,
+        //     fechaNac: fechaNac,
+        //     dni: dni,
+        //     fotoPerfil: fotoPerfil,
+        // }
 
         let filtrado = {
             where: [{email: email}]
@@ -47,7 +57,7 @@ let registroController = {
                     foto_perfil: fotoPerfil,
                     fecha: fechaNac,
                     dni: dni
-                });
+                })
 
                 // Redireccionamos a Login
                 return res.redirect('/login')
@@ -57,5 +67,6 @@ let registroController = {
                   console.log(error);
               })
 
-    }}
+    }, 
+}
 module.exports = registroController;
