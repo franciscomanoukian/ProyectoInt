@@ -55,7 +55,8 @@ let loginController = {
         //Preguntar si el usuario tildó el checkbox para recordarlo
         // return res.send (req.body);
         if(req.body.recordarme != undefined){
-            res.cookie('cookieUser', 'el dato que quiero guardar', {maxAge: 1000*60*123123123})
+            res.cookie('COOKIE', req.session.user, {maxAge: 1000*60*123123123}
+            )
         }
 
         return res.send(req.session)
