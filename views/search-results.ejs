@@ -18,22 +18,24 @@
 			<div class="container products-wrapper">
 				<div class="row">
 					
-					<div class="col-12 col-sm-6 col-lg-3">
-					
-						<section class="product-box">
-							<a href="/producto/detalle/id/<%=lista.id%>"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
-								<figure class="product-box_image">
-									<img src="<%=lista.imagen%>" alt="<%=lista.nombre%>" >
-								</figure>
-								<article class="product-box_data">
-									<h2><%=lista.nombre%></h2>
-									<p><%=lista.descripcion%></p>
-									<p>Comentarios: !!!!!</p> 
-								</article>
-							</a>
-						</section>
+					<%for (let i=0; i<lista.length; i++){ %>
+						<div class="col-12 col-sm-6 col-lg-3">
 						
-					</div>
+							<section class="product-box">
+								<a href="/producto/detalle/id/<%=lista[i].id%>"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
+									<figure class="product-box_image">
+										<img src="<%=lista[i].imagen%>" alt="<%=lista[i].nombre%>">
+									</figure>
+									<article class="product-box_data">
+										<h2><%=lista[i].nombre%></h2>
+										<p><%=lista[i].descripcion%></p>
+										<p>Comentarios: <%=lista[i].comentarios.length%></p> 
+									</article>
+								</a>
+							</section>
+							
+						</div>
+					<%}%>
 				
 
 	<!-- footer -->
