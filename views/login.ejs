@@ -8,15 +8,15 @@
 	<%- include("./partials/headerNoLogueado") %>
 	<!-- /Header -->
 
-	<!-- Novedades -->
+	<!-- Login -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+				<h2 class="products-title">Ingresar <% if (locals.errors) {%>
+					<p style="color: red"><%= errors.message%>  </p> 
+				<% } %></h2>
 			</div>
 			
-			<!-- Show the "ultimos" products -->
-		
 			<form action="/login/loginUser" method="POST" class="loginform">
 				<label>USUARIO</label><input name="email" type="email" placeholder="EMAIL" class = "logintype">
 				<label>CONTRASEÑA</label><input name="contra" type="password" placeholder="CONTRASEÑA" class = "logintype">

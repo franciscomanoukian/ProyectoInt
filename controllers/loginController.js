@@ -17,14 +17,21 @@ let loginController = {
             .then(function(result){
                 // VERIFICO condiciones del formulario, las guardamos mas abajo
                 // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
+                let errors = {};
                 if (email == '') {
-                    return res.send('Email es un campo obligatorio')
+                    errors.message = "El mail está vacío."
+                    res.locals.errors = errors;
+                    return res.render('login')
                 }
                 if (result == null) {
-                    return res.send('Email no encontrado')
+                    errors.message = "Email no encontrado"
+                    res.locals.errors = errors;
+                    return res.render('login')
                 }
                 if (contra == '') {
-                    return res.send('Contraseña es un campo obligatorio')
+                    errors.message = "Contraseña es un campo obligatorio"
+                    res.locals.errors = errors;
+                    return res.render('login')
                 }
                 let contraEncriptada = result.contraseña
                 let checkContra = bcrypt.compareSync(contra, contraEncriptada)
@@ -33,7 +40,9 @@ let loginController = {
                 if (checkContra == true){
                     res.redirect('/')
                 } else {
-                    res.send('Tu contraseña es incorrecta, volve a intentarlo')
+                    errors.message = "Contraseña incorrecta."
+                    res.locals.errors = errors;
+                    return res.render('login')
                 }
               })
               .catch( function(error){
