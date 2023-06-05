@@ -35,12 +35,17 @@ app.use(session(
 
 //Pasar datos de session a las vistas. Usaremos un middleware de apolicación.
 app.use(function(req, res, next){
-  if(req.session.user != undefined){
-    res.locals.user = req.session.user
+  if (req.cookies.InfoUser != undefined && req.session.user != undefined){
+      req.session.user = req.cookies.InfoUser
+      res.locals.user = req.session.user
+      return next();
+    } 
     return next();
   }
-  return next();
-})
+  
+
+)
+
 
 app.use('/', homeRouter);
 app.use('/registrarme', registrarmeRouter);// <---------------- Esto viene de la etiqueta a de cada producto individual

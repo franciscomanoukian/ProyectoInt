@@ -40,10 +40,10 @@ let loginController = {
 
                 if (checkContra == true) {
 
-                    req.session.user = result
+                    req.session.user = result.dataValues
 
                     if (req.body.recordarme != undefined) {
-                        res.cookie('InfoUser', req.session.user, { maxAge: 1000 * 60 * 123123123 });
+                        res.cookie('InfoUser', req.session.user.id, { maxAge: 1000 * 60 * 15 });
                     }
                     
                     return res.redirect('/')
