@@ -43,7 +43,7 @@ let loginController = {
                     req.session.user = result
 
                     if (req.body.recordarme != undefined) {
-                        res.cookie('COOKIE', req.session.user, { maxAge: 1000 * 60 * 123123123 });
+                        res.cookie('InfoUser', req.session.user, { maxAge: 1000 * 60 * 123123123 });
                     }
                     
                     return res.redirect('/')
