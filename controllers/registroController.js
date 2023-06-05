@@ -18,6 +18,7 @@ let registroController = {
         let fechaNac = form.fechaNac;
         let dni = form.documento;
         let fotoPerfil = form.fotoPerfil;
+        let nombre = form.usuario; 
 
         // let user ={
         //     email: email, 
@@ -65,7 +66,8 @@ let registroController = {
                     contraseña: bcrypt.hashSync(contraseña, 10),
                     foto_perfil: fotoPerfil,
                     fecha: fechaNac,
-                    dni: dni
+                    dni: dni,
+                    nombre: nombre
                 })
 
                 // Redireccionamos a Login
