@@ -35,17 +35,26 @@ let registroController = {
             .then(function(result){
                 // VERIFICO condiciones del formulario, las guardamos mas abajo
                 // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
+                let errors = {};
                 if (email == '') {
-                    return res.send('Email es un campo obligatorio')
+                    errors.message = "El mail está vacío.n "
+                    res.locals.errors = errors;
+                    return res.render('register')
                 }
                 if (result != null) {
-                    return res.send('Email ya utilizado')
+                    errors.message = "Email ya utilizado."
+                    res.locals.errors = errors;
+                    return res.render('register')
                 }
                 if (userName == '') {
-                    return res.send('Username es un campo obligatorio')
+                    errors.message = "Username es un campo obligatorio."
+                    res.locals.errors = errors;
+                    return res.render('register')
                 }
                 if (contraseña.length < 3) {
-                    return res.send('Contra menor a 3 car')
+                    errors.message = "La contraseña debe tener más de 3 caracteres."
+                    res.locals.errors = errors;
+                    return res.render('register')
                 }
                 
                 
