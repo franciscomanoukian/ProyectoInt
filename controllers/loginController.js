@@ -2,19 +2,19 @@ let db = require("../database/models"); //importando la lista, para mandarla a r
 const bcrypt = require('bcryptjs');
 
 let loginController = {
-    showLogin: function(req, res) {
+    showLogin: function (req, res) {
         res.render('login');
     },
-    login: function(req, res) {
+    login: function (req, res) {
         let form = req.body
         let email = form.email
         let contra = form.contra
         let filtrado = {
-            where: [{email: email}]
+            where: [{ email: email }]
         }
-        
-        db.Usuario.findOne(filtrado) 
-            .then(function(result){
+
+        db.Usuario.findOne(filtrado)
+            .then(function (result) {
                 // VERIFICO condiciones del formulario, las guardamos mas abajo
                 // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
                 let errors = {};
@@ -38,39 +38,34 @@ let loginController = {
 
                 // Redireccionamos a Home y creamos la cookie 
 
-                if (checkContra == true){
-                    res.redirect('/')
+                if (checkContra == true) {
 
-                    req.session.user = {
-                        userName: email,
-                        contraseña: contra,
-                   }
+                    req.session.user = result
 
-                   if(req.body.recordarme != undefined){
-                    res.cookie('COOKIE', req.session.user, {maxAge: 1000*60*123123123}
-                    )
-
-                    return res.send(req.session)
-                }
+                    if (req.body.recordarme != undefined) {
+                        res.cookie('COOKIE', req.session.user, { maxAge: 1000 * 60 * 123123123 });
+                    }
+                    
+                    return res.redirect('/')
 
                 } else {
                     errors.message = "Contraseña incorrecta."
                     res.locals.errors = errors;
                     return res.render('login')
                 }
-              })
-              .catch( function(error){
-                  console.log(error);
-              })
-            
-    }, 
-    logout: function(req, res){
-         // destruir session
-         req.session.destroy();
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
 
-         //Destruyo la cookie
- 
-         return res.redirect('/');
+    },
+    logout: function (req, res) {
+        // destruir session
+        req.session.destroy();
+
+        //Destruyo la cookie
+
+        return res.redirect('/');
     }
 }
 module.exports = loginController

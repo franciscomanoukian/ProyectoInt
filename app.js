@@ -24,13 +24,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', homeRouter);
-app.use('/registrarme', registrarmeRouter);// <---------------- Esto viene de la etiqueta a de cada producto individual
-app.use('/login', loginRouter);
-app.use('/perfil', perfilRouter);
-app.use('/producto', productoRouter);
-app.use('/search-results', searchResultsRouter);
-
 //Session se inicia antes de las rutas
 app.use(session(
   {
@@ -48,6 +41,13 @@ app.use(function(req, res, next){
   }
   return next();
 })
+
+app.use('/', homeRouter);
+app.use('/registrarme', registrarmeRouter);// <---------------- Esto viene de la etiqueta a de cada producto individual
+app.use('/login', loginRouter);
+app.use('/perfil', perfilRouter);
+app.use('/producto', productoRouter);
+app.use('/search-results', searchResultsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
