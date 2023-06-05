@@ -30,6 +30,9 @@ module.exports = function (sequelize, dataTypes) {
         deletedAt: {
             type: dataTypes.DATE //chequear esto
         }, 
+        nombre: {
+            type: dataTypes.STRING
+        }
     };
     let config = { 
         tableName: 'usuarios'
