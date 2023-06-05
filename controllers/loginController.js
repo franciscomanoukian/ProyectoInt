@@ -36,9 +36,23 @@ let loginController = {
                 let contraEncriptada = result.contraseña
                 let checkContra = bcrypt.compareSync(contra, contraEncriptada)
 
-                // Redireccionamos a Home
+                // Redireccionamos a Home y creamos la cookie 
+
                 if (checkContra == true){
                     res.redirect('/')
+
+                    req.session.user = {
+                        userName: email,
+                        contraseña: contra,
+                   }
+
+                   if(req.body.recordarme != undefined){
+                    res.cookie('COOKIE', req.session.user, {maxAge: 1000*60*123123123}
+                    )
+
+                    return res.send(req.session)
+                }
+
                 } else {
                     errors.message = "Contraseña incorrecta."
                     res.locals.errors = errors;
@@ -49,28 +63,6 @@ let loginController = {
                   console.log(error);
               })
             
-    }, 
-    processLogin: function(req, res){
-        //Tengo que buscar los datos de la db.
-
-        //Ponerlos en session.
-        let form = req.body; 
-
-        req.session.user = {
-             userName: form.usuario,
-             contraseña: form.contra,
-        }
-
-        //Preguntar si el usuario tildó el checkbox para recordarlo
-        // return res.send (req.body);
-        if(req.body.recordarme != undefined){
-            res.cookie('COOKIE', req.session.user, {maxAge: 1000*60*123123123}
-            )
-        }
-
-        return res.send(req.session)
-        //Y si el usuario quiere, agregar la cookie para que lo recuerde.
-        
     }, 
     logout: function(req, res){
          // destruir session
