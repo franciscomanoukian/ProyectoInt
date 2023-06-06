@@ -11,6 +11,7 @@ let loginRouter = require('./routes/login');
 let perfilRouter = require('./routes/perfil');
 let productoRouter = require('./routes/producto')
 let searchResultsRouter = require('./routes/searchResults');
+const { nextTick } = require('process');
 
 var app = express();
 
@@ -35,9 +36,9 @@ app.use(session(
 
 //Pasar datos de session a las vistas. Usaremos un middleware de apolicación.
 app.use(function(req, res, next){
-  if (req.cookies.InfoUser != undefined && req.session.user != undefined){
-      req.session.user = req.cookies.InfoUser
-      res.locals.user = req.session.user
+  if (req.cookies.InfoUser != undefined){
+      req.session.InfoUser = req.cookies.InfoUser
+      res.locals.InfoUser = req.session.InfoUser
       return next();
     } 
     return next();

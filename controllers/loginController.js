@@ -64,6 +64,7 @@ let loginController = {
         req.session.destroy();
 
         //Destruyo la cookie
+        res.clearCookie('InfoUser')
 
         return res.redirect('/');
     }

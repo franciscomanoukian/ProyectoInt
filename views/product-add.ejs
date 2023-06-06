@@ -5,7 +5,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include("./partials/headerLogueado") %>
+	<% if (locals.InfoUser != undefined) {%>
+		<%- include("./partials/headerLogueado") %> 
+	<% } else {%>
+		<%- include("./partials/headerNoLogueado") %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -21,7 +25,6 @@
 				<label class="textproduct" name="imagen">IMAGEN</label><input type="file" placeholder="FOTO DE PRODUCTO" class="inputproduct">
 				<label class="textproduct" name="nombre">NOMBRE DE PRODUCTO</label><input type="text" placeholder="NOMBRE PRODUCTO" class="inputproduct">
 				<label class="textproduct" name="descripcion">DESCRIPCION</label><input type="text" placeholder="DESCRIPCION PRODUCTO" class="inputproduct">
-				<label class="textproduct">FECHA DE CARGA</label><input type="date" placeholder="FECHA DE CARGA" class="inputproduct">
 				<button type="submit" class ="addproductbutton"> AGREGAR PRODUCTO </button>
 			</form>
 

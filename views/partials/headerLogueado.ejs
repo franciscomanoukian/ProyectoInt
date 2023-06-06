@@ -32,16 +32,16 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/producto/add">Cargar productos</a></li> <!-- aca no se porque es product-add-->
+					<li><a href="/producto/edit/id">Cargar productos</a></li> <!-- aca no se porque es product-add-->
 				</ul>
 	
 				<ul class="right-navbar">
 					<li><a href="/perfil"> <!-- aca antes decia profile.html -->
-						Bienvenido: <%=  locals.user.nombre %> <i class="fas fa-user"></i>
+						Bienvenido: <%=  locals.InfoUser %> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="/" method="GET"> <!-- a>le cambiamos el metodo para que ande, era POST -->
+						<form action="/login/logout" method="GET"> <!-- a>le cambiamos el metodo para que ande, era POST -->
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>
