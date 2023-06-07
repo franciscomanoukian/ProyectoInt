@@ -16,12 +16,12 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="<%-datosUsuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
+				<img src="<% locals.user.foto %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%-datosUsuario.nombreUsuario %> 
-						<p><%-datosUsuario.email %></p>
+					<h1 class="main-title">Hola! <%=  locals.user.nombre %> 
+						<p><%=  locals.user.email %></p>
 						<a href="/perfil/editar"> <!-- aca no se porq decia profile-edit.html -->
 							<i class="fas fa-cog"></i>
 						</a>
@@ -47,23 +47,23 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<%for (let i=0; i<8 ; i++){ %>
+			<%for (let i=0; i<lista.length ; i++){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 				
 					<section class="product-box">
-						<a href="/producto/detalle/id/<%=lista[i].id%>"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
+						<a href="/producto/detalle/id/"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
 							<figure class="product-box_image">
-								<img src="<%=lista[i].imagen%>" alt="<%=lista[i].nombre%>">
+								<img src="" alt="aaa">
 							</figure>
 							<article class="product-box_data">
-								<h2><%=lista[i].nombre%></h2>
-								<p><%=lista[i].descripcion%></p>
-								<p>Comentarios:  <%=comentarios.length%></p> 
+								<h2><%=lista.nombre%></h2>
+								<p><%=lista.descripcion%></p>
+								<p>Comentarios:  </p> 
 							</article>
 						</a>
 					</section>
 				</div>
-			    <%}%>
+			<%}%>
 			</div>
 		</div>
 	</div>
