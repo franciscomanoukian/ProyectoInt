@@ -10,10 +10,11 @@ let perfilController = {
                 ]
           })
         .then(function(resultado){
-            //return res.send(resultado.productos) 
-            let productos = resultado.productos
             
-            return res.render('profile', {lista: productos})
+            let productos = resultado.productos
+            //return res.send(productos)
+            
+            return res.render('profile', {datosUsuario: resultado, lista: productos})
             
         })
         .catch( function(error){

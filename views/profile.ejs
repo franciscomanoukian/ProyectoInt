@@ -20,19 +20,27 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">Hola! <%=  locals.user.nombre %> 
+					<h1 class="main-title"><%=  locals.user.nombre %> 
 						<p><%=  locals.user.email %></p>
-						<a href="/perfil/editar"> <!-- aca no se porq decia profile-edit.html -->
-							<i class="fas fa-cog"></i>
-						</a>
+						<!-- IF: El usuario que esta en sesion es el que se esta mostrando, mostramos boton EDITAR PERFIL -->
+						<% if (locals.user.id == datosUsuario.id) {%>
+							<a href="/perfil/editar"> <!-- aca no se porq decia profile-edit.html -->
+								<i class="fas fa-cog"></i>
+							</a> 
+						<% } %>
+						
 					</h1>
-					<a class="btn mt-3 ml-4" href="" class ="botonseguir">SEGUIR</a>
+					<!-- IF: El usuario que esta en sesion es distinto al usuario que se esta mostrando, mostramos boton seguir -->
+					<% if (locals.user.id != datosUsuario.id) {%>
+						<a class="btn mt-3 ml-4" href="" class ="botonseguir">SEGUIR</a>
+					<% } %>
+					
 				</div>
 				<div>
 					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li><%=lista.length%> productos</li>
+						<li>X seguidores</li>
+						<li>X comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -51,14 +59,13 @@
 				<div class="col-12 col-sm-6 col-lg-3">
 				
 					<section class="product-box">
-						<a href="/producto/detalle/id/"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
+						<a href="/producto/detalle/id/<%=lista[i].id%>"> <!-- Esta ruta masomenos anda. Lleva a app js y de ahi se ejecuta la ruta /producto AAAAAAAAAAAERAREATRYDFUYIWDGQDOUYHWQODIUHWQOIDUHQWOIUDHOQWIUDHOIQWUDHOQIWUDHQKSHGAKSHJDGASKJ -->
 							<figure class="product-box_image">
-								<img src="" alt="aaa">
+								<img src="<%=lista[i].imagen%>" alt="<%=lista[i].nombre%>">
 							</figure>
 							<article class="product-box_data">
-								<h2><%=lista.nombre%></h2>
-								<p><%=lista.descripcion%></p>
-								<p>Comentarios:  </p> 
+								<h2><%=lista[i].nombre%></h2>
+								<p><%=lista[i].descripcion%></p>
 							</article>
 						</a>
 					</section>
