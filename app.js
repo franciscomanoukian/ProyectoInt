@@ -36,7 +36,7 @@ app.use(session(
 
 //Pasar datos de session a las vistas. Usaremos un middleware de apolicación.
 app.use(function(req, res, next){
-  if (req.cookies.InfoUser != undefined){
+  if (req.cookies.InfoUser != undefined && req.session.InfoUser == undefined){
       req.session.InfoUser = req.cookies.InfoUser
       res.locals.InfoUser = req.session.InfoUser
       return next();
