@@ -2,9 +2,10 @@ let db = require("../database/models"); //importando la lista, para mandarla a r
 
 let perfilController = {
     detail: function(req, res){
-        let idUsuario = req.session.user.id
+        let id = req.params.id
         
-        db.Usuario.findByPk(idUsuario, {
+        
+        db.Usuario.findByPk(id, {
             include: [
                 {association: "productos"} // Incluye relacioness
                 ]
