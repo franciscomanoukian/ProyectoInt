@@ -38,14 +38,10 @@ let productoController = {
 
         })
     
-        return res.redirect('/')
-    },
-    showAdd: function (req, res) {
-        return res.render('product-add', {
-            
-        })
-    },
-    
+        //return res.render('product-add', {
+        //    datosUsuario: db.usuario
+     //   })
+    }
     
 }
 module.exports = productoController

@@ -38,7 +38,7 @@ let registroController = {
                 // HAY Q MODIFICAR MENSAJES DE ERROR q estan con res.send
                 let errors = {};
                 if (email == '') {
-                    errors.message = "El mail está vacío.n "
+                    errors.message = "El mail está vacío. "
                     res.locals.errors = errors;
                     return res.render('register')
                 }
