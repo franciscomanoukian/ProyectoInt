@@ -8,7 +8,10 @@ let perfilController = {
         db.Usuario.findByPk(id, {
             include: [
                 {association: "productos"} // Incluye relacioness
-                ]
+                ],
+                order: [
+                    ['createdAt', 'ASC']
+                ],
           })
         .then(function(resultado){
             
