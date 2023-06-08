@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+
+<body>
+	<!-- Header -->
+	<% if (locals.user != undefined) {%>
+		<%- include("./partials/headerLogueado") %> 
+	<% } else {%>
+		<%- include("./partials/headerNoLogueado") %>
+	<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<div class="container products-wrapper">
+				<div class="row">
+					
+                    <ul>
+                        <% for (let i=0; i<= lista.length ; i++){%>
+                            <li>lista[i].user</li>
+                        <%}%>
+                    </ul>
+					
+				
+
+	<!-- footer -->
+	<%- include("./partials/footer") %>
+	<!-- /footer -->
+</body>
+
+</html>

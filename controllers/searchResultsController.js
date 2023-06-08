@@ -48,6 +48,54 @@ let searchResultsController = {
         })
 
 
+    },
+    showUsers: function(req, res) {
+        let busqueda = req.query.search
+        let filtro = {
+            where: [{nombre: {[op.like]: `%${busqueda}%`}}],
+            order: [
+                ['createdAt', 'ASC']
+            ],
+            include: [
+                {association: "productos"},{association: "comentarios"} // Incluye relacioness
+                ]
+        }
+        let filtro2 = {
+            where: [{email: {[op.like]: `%${busqueda}%`}}],
+            order: [
+                ['createdAt', 'ASC']
+            ],
+            include: [
+                {association: "productos"},{association: "comentarios"} // Incluye relacioness
+                ]
+        }
+
+        db.Usuario.findAll(filtro) 
+        .then(function(resultado){
+            if (result.length != 0){
+                //res.send(result)
+                res.render('search-user', {lista: resultado});
+            }
+            else{
+                db.Producto.findAll(filtro2)
+                .then(function(resultado2){
+                    if (result2.length != 0){
+                        res.render('search-user', {lista: resultado2}); 
+                    }
+                    else{
+                        res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
+                    }
+                })
+                .catch( function(error){
+                    console.log(error)
+                })
+            }
+        })
+        .catch( function(error){
+            console.log(error);
+        })
+
+
     }
 }
 module.exports = searchResultsController
