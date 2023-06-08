@@ -41,6 +41,22 @@ let productoController = {
         //return res.render('product-add', {
         //    datosUsuario: db.usuario
      //   })
+    }, 
+    comment: function(req, res){
+        let form = req.body 
+        let errors = {};
+
+        if (req.session.user != undefined){
+            db.Comentario.create({
+                id_post: form.idPost,
+                id_usuario: req.session.user.id,
+                texto: form.textoComment,
+            })
+        } else {
+            errors.message = "Debes iniciar sesión para dejar tu comentario"
+            res.locals.errors = errors;
+            res.render('login')
+        }
     }
     
 }
