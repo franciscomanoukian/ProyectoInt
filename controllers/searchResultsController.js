@@ -51,7 +51,7 @@ let searchResultsController = {
     },
     showUsers: function(req, res) {
         let busqueda = req.query.search
-        let filtro = {
+        let filtros = {
             where: [{nombre: {[op.like]: `%${busqueda}%`}}],
             order: [
                 ['createdAt', 'ASC']
@@ -60,27 +60,28 @@ let searchResultsController = {
                 {association: "productos"},{association: "comentarios"} // Incluye relacioness
                 ]
         }
-        let filtro2 = {
+        let filtros2 = {
             where: [{email: {[op.like]: `%${busqueda}%`}}],
             order: [
                 ['createdAt', 'ASC']
             ],
             include: [
-                {association: "productos"},{association: "comentarios"} // Incluye relacioness
+               {association: "productos"},{association: "comentarios"} // Incluye relacioness
                 ]
         }
 
-        db.Usuario.findAll(filtro) 
+        db.Usuario.findAll(filtros) 
         .then(function(resultado){
             if (resultado.length != 0){
-                //res.send(result)
+                res.send(resultado)
                 res.render('search-user', {lista: resultado});
             }
             else{
-                db.Producto.findAll(filtro2)
+                db.Usuario.findAll(filtros2)
                 .then(function(resultado2){
-                    if (result2.length != 0){
-                        res.render('search-user', {lista: resultado2}); 
+                    if (resultado2.length != 0){
+                        res.send(resultado2)
+                        //res.render('search-user', {lista: resultado2}); 
                     }
                     else{
                         res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
