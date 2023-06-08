@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session'); // defino la variable session
+let db = require('./database/models')
 
 let homeRouter = require('./routes/home');
 let registrarmeRouter = require('./routes/registrarme');
@@ -44,24 +45,24 @@ app.use(function(req, res, next){
   }
 )
 
-// app.use(function(res, req, next){
-//   //return console.log(req.cookie.InfoUser)
-//   if (req.cookies.InfoUser != un,Infodefined && req.session.user == undefined){
-//     let idUsuarioEnCookie = req.cookies.InfoUser;
+app.use(function(req, res, next){
+  //return console.log(req.cookie.InfoUser)
+  if (req.cookies.InfoUser != undefined && req.session.user == undefined){
+    let idUsuarioEnCookie = req.cookies.InfoUser;
 
-//     db.Usuario.findByPk(idUsuarioEnCookie)
-//     .then((user)=>{
-//       req.session.user = user.dataValues
-//       res.locals.user = user.dataValues
-//       return next();
-//     }).catch((err)=>{
-//       console.log(err)
-//     });
-//   } else{
-//     return next()
-//   }
+    db.Usuario.findByPk(idUsuarioEnCookie)
+    .then((user)=>{
+      req.session.user = user.dataValues
+      res.locals.user = user.dataValues
+      return next();
+    }).catch((err)=>{
+      console.log(err)
+    });
+  } else{
+    return next()
+  }
   
-// })
+})
 
 app.use('/', homeRouter);
 app.use('/registrarme', registrarmeRouter);// <---------------- Esto viene de la etiqueta a de cada producto individual
