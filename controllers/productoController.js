@@ -52,6 +52,7 @@ let productoController = {
                 id_usuario: req.session.user.id,
                 texto: form.textoComment,
             })
+            return res.redirect(`/producto/detalle/id/${req.body.idPost}`)
         } else {
             errors.message = "Debes iniciar sesión para dejar tu comentario"
             res.locals.errors = errors;
