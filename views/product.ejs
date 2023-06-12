@@ -16,15 +16,20 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= result.nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/producto/edit/id/">Editar</a> <!-- aca antes decia product-add.html -->
+				<% if (locals.user.id == result.id_usuario) {%>
+					<a href="/producto/edit/id/">Editar</a> <!-- aca antes decia product-add.html --> 
+				<% } %>
+				
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
+					<strong> <p class="product-detail-description">Publicado por: <a href="/perfil/<%= result.id_usuario %>" style="color: blueviolet"> <%= result.usuario.nombre %></a></p> </strong>
 					<img src="<%=result.imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= result.descripcion%></p>
+					
 				</article>
 				<div class="col-12 col-lg-4">
 
