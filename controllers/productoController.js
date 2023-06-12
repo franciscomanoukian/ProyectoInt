@@ -76,14 +76,21 @@ let productoController = {
     
 
     },  destroy: function(req, res){
-        res.render ('product-destroy')
+        res.render ('product-destroy', {
+            idProducto: req.params.id
+        })
     },
-    procesoDestroy:function (req, res){db.Producto.destroy({
-        WHERE:[{id: req.body.Productoid}]
+    procesoDestroy:function (req, res){
+       // if (req.session.user.id == )
+        db.Producto.destroy({
+            where:{id: req.body.productoId}
         })  
     .then(
-     
-    )}, 
+        res.redirect('/')
+    )
+    .catch(function(error){
+    return error
+    })}, 
     comment: function(req, res){
         let form = req.body 
         let errors = {};

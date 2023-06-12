@@ -7,6 +7,7 @@ router.get('/edit/:id', productoController.edit)
 router.post('/add', productoController.add)
 router.post('/guardarCambios', productoController.modify)
 router.get('/borrar/:id', productoController.destroy)
+router.post('/borrar', productoController.procesoDestroy)
 router.post('/comment', productoController.comment)
   
 module.exports = router;
