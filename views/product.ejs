@@ -29,7 +29,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<strong> <p class="product-detail-description">Publicado por: <a href="/perfil/<%= result.id_usuario %>" style="color: blueviolet"> <%= result.usuario.nombre %></a></p> </strong>
+					<strong> <p class="product-detail-description">Publicado por: <a href="/perfil/id/<%= result.id_usuario %>" style="color: blueviolet"> <%= result.usuario.nombre %></a></p> </strong>
 					<img src="<%=result.imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= result.descripcion%></p>
@@ -43,7 +43,7 @@
 								<img src="https://via.placeholder.com/35" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/perfil/<%= result.comentarios[i].id_usuario %>"> <%= result.comentarios[i].usuario.nombre %>:</a> </strong> 
+									<strong> <a href="/perfil/id/<%= result.comentarios[i].id_usuario %>"> <%= result.comentarios[i].usuario.nombre %>:</a> </strong> 
 									<%= result.comentarios[i].texto%></p>
 								</div>
 							</article>
