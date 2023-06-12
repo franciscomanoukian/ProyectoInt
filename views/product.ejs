@@ -34,7 +34,7 @@
 								<img src="https://via.placeholder.com/35" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/perfil/<%= result.comentarios[i].id_usuario %>">Nombre usuario: <%= result.comentarios[i].id_usuario %></a> </strong> 
+									<strong> <a href="/perfil/<%= result.comentarios[i].id_usuario %>"> <%= result.comentarios[i].usuario.nombre %>:</a> </strong> 
 									<%= result.comentarios[i].texto%></p>
 								</div>
 							</article>
@@ -46,7 +46,7 @@
 					<form class="form" action="/producto/comment" method="POST"> <!-- ERA POSTTTTTTTTTTTTTT -->
 						<input class="form-input" name="textoComment" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-						<input class="form-input" name="idPost" type="hidden" value="<%= result.id%>" placeholder="">
+						<input class="form-input" name="idPost" type="hidden" value="<%=result.id%>" placeholder="">
 					</form>
 					<hr>
 				</div>
