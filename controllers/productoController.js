@@ -76,7 +76,14 @@ let productoController = {
         })
     
 
-    }, 
+    },  destroy: function(req, res){
+        db.Producto.destroy({
+            WHERE:[{id: req.body.Productoid}]
+            })  
+        .then(
+            res.render('product-destroy')
+        )
+    },
     comment: function(req, res){
         let form = req.body 
         let errors = {};
