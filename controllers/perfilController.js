@@ -31,6 +31,26 @@ let perfilController = {
         return res.render('profile-edit', {
             
         })
+    }, 
+    seguir: function(req, res){
+        let form = req.body 
+        let errors = {};
+
+        res.send(form)
+
+        // if (req.session.user != undefined){
+        //     db.Comentario.create({
+        //         id_post: form.idPost,
+        //         id_usuario: req.session.user.id,
+        //         texto: form.textoComment,
+        //     })
+        //     return res.redirect(`/producto/detalle/id/${req.body.idPost}`)
+        // } else {
+        //     errors.message = "Debes iniciar sesión para dejar tu comentario"
+        //     res.locals.errors = errors;
+        //     res.render('login')
+        // }
+
     }
 }
 
