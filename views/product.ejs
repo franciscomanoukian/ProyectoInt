@@ -21,6 +21,7 @@
 			<p class="product-detail-description">
 				<% if (locals.user.id == result.id_usuario) {%>
 					<a href="/producto/edit/<%= result.id%>">Editar</a> <!-- aca antes decia product-add.html --> 
+					<a href="/producto/borrar/<%= result.id%>">Eliminar</a>
 				<% } %>
 				
 			</p>
