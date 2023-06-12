@@ -40,15 +40,18 @@ let perfilController = {
     }, 
     modify: function(req, res) {
         let form = req.body
-        return res.send(form)
-        db.Producto.update({
+        
+        db.Usuario.update({
             nombre: form.nombre,
             email: form.email,
+            fecha: form.fecha,
+            dni: form.dni,
+            foto_perfil: form.foto
             
         }, {where: {
-            id: form.id_producto
+            id: form.id
         }})
-        res.redirect(`/perfil/${req.session.user.id}`)
+        res.redirect(`/perfil/id/${req.session.user.id}`)
     },
     seguir: function(req, res){
         let form = req.body 
