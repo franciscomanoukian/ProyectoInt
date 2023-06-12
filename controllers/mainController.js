@@ -7,7 +7,8 @@ let mainController = {
             include: [
                 {association: "usuario"},{association: "comentarios"} // Incluye relacioness
                 ]
-          }).then( function(result){
+          }, {order: [
+            ['createdAt', 'DESC']]}).then( function(result){
                 return res.render('home', {
                     lista: result //esto busca y envia los datos y los manipulamos en el ejs con variable lista
                 });
