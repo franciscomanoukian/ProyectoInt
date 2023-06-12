@@ -17,18 +17,20 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Borrar productos</h2>
-				<strong><p class="product-detail-description"><a href="/" >CANCELAR</a></p></strong>
-				<h2>¿Estas seguro que queres borrar este producto?</h2>
+				<h2 class="confirmacion">¿Estas seguro que queres borrar este producto?</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<h2 class="products-title">Ingresar <% if (locals.errors) {%>
+			<h2 class="products-title"> <% if (locals.errors) {%>
 				<p style="color: red"><%= errors.message%>  </p> 
 			<% } %></h2>
 			<form action="/producto/borrar" method="POST" class="agregarproductoform"> <!-- aca antes decia login.html -->
 				<input name="productoId" type="hidden" placeholder="NOMBRE PRODUCTO" class="inputproduct" value="<%=idProducto%>">
-				<button type="submit" class ="addproductbutton"> BORRAR PRODUCTO </button>
+				
+				<button type="submit" class ="addproductbutton" > BORRAR PRODUCTO </button>
+	
 			</form>
+			<p class="cancelar"><a href="/" >CANCELAR</a></p>
 
 			
 

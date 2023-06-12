@@ -45,6 +45,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
+  color: white;
 }
 
 figure {
@@ -96,6 +97,11 @@ hr {
   color: white;
   font-size: 20px;
   margin-left: 15px;
+}
+.confirmacion{
+  color: white;
+  font-size: 20px;
+  
 }
 
 .search-form_input {
@@ -640,7 +646,7 @@ textarea.form-input {
 .fotoregistro2{
   float: right;
   width: 40%;
-  margin-left: 150px;
+  margin-left: 350px;
 }
 
 /*====== Product add form ======*/
@@ -650,7 +656,7 @@ textarea.form-input {
   flex-direction: column;
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  background-color: white;
+  
 }
 
 .textproduct {
@@ -678,6 +684,13 @@ textarea.form-input {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
+}
+.cancelar{
+  padding: 10px 20px;;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 50px;
+  font-size: 13px;
 }
 
 .addproductbutton:hover {
