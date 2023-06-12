@@ -25,9 +25,34 @@ let productoController = {
         
     },
     edit: function (req, res) {
-        return res.render('product-add', {
-            datosUsuario: db.usuario
+        let id = req.params.id
+
+        db.Producto.findByPk(id)
+        .then(function(resultado){
+            
+            res.render('product-edit', {
+                datosProducto: resultado
+            })
+
+            
         })
+        .catch( function(error){
+            console.log(error);
+        })
+        
+    },
+    modify: function(req, res){
+        let form = req.body
+        
+        db.Producto.update({
+            nombre: form.nombre,
+            imagen: form.imagen,
+            descripcion: form.descripcion
+        }, {where: {
+            id: form.id_producto
+        }})
+        res.redirect(`/perfil/${req.session.user.id}`)
+
     },
     add: function (req, res) {
         let form = req.body
