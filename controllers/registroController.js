@@ -2,11 +2,14 @@ let db = require('../database/models');
 let bcrypt = require('bcryptjs');
 
 let registroController = {
-    registrar: function(req, res) {
+    registrar: function(req, res) { if (req.session.user == null){
         res.render('register', {
             email: req.params.email
         })
-        console.log(email);
+        console.log(email);}
+        else{
+            res.redirect('/')
+        }
 
     },
     store: function(req, res){
