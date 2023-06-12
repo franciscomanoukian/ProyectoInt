@@ -6,12 +6,11 @@ let productoController = {
         
         db.Producto.findByPk(id, {
             include: [
-                {association: "usuario"},{association: "comentarios", include: [{association: "usuario"}]
-            } // Incluye relacioness
-                ],
-                order: [
+                {association: "usuario"},{association: "comentarios", include: [{association: "usuario"}], limit: 7, order: [
                     ['createdAt', 'DESC']
-                ],
+                ] 
+            } // Incluye relacioness
+                ]
           })
         .then(function(resultado){
             // res.send(resultado)
