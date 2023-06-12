@@ -6,7 +6,8 @@ let productoController = {
         
         db.Producto.findByPk(id, {
             include: [
-                {association: "usuario"},{association: "comentarios"} // Incluye relacioness
+                {association: "usuario"},{association: "comentarios", include: [{association: "usuario"}]
+            } // Incluye relacioness
                 ],
                 order: [
                     ['createdAt', 'DESC']
