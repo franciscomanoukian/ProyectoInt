@@ -20,13 +20,14 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<form action="/perfil" method="GET" class="registroform"> <!-- aca antes decia login.html -->
-				<label class = "registroformlabel">EMAIL</label><input type="email" placeholder="EMAIL" class = "registroinput">
-				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input type="text" placeholder="USUARIO" class = "registroinput">
-				<label class = "registroformlabel">CONTRASEÑA</label><input type="password" placeholder="CONTRASEÑA" class = "registroinput">
-				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input type="date" placeholder="FECHA NACIMIENTO" class = "registroinput">
-				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input type="number" placeholder="NRO DOCUMENTO" class = "registroinput"> 
-				<label class = "registroformlabel">FOTO DE PERFIL</label><input type="text" placeholder="FOTO DE PERFIL" class = "registroinput">
+			<form action="/perfil/modificar" method="POST" class="registroform">
+				<label class = "registroformlabel">EMAIL</label><input type="email" placeholder="EMAIL" class = "registroinput" value="<%= datosUsuario.email%>" name="email">
+				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input type="text" placeholder="USUARIO" class = "registroinput" value="<%= datosUsuario.nombre%>" name="nombre">
+				<label class = "registroformlabel">CONTRASEÑA</label><input type="password" placeholder="CONTRASEÑA" class = "registroinput" name="contra">
+				<label class = "registroformlabel">FECHA DE NACIMIENTO</label><input type="date" placeholder="FECHA NACIMIENTO" class = "registroinput" value="<%= datosUsuario.fecha%>" name="fecha">
+				<label class = "registroformlabel">NUMERO DE DOCUMENTO</label><input type="number" placeholder="NRO DOCUMENTO" class = "registroinput" value="<%= datosUsuario.dni%>" name="dni"> 
+				<label class = "registroformlabel">FOTO DE PERFIL</label><input type="text" placeholder="FOTO DE PERFIL" class = "registroinput" value="<%= datosUsuario.foto_perfil%>" name="foto">
+				<input type="hidden" name="id" value="<%= locals.user.id%>">
 				<button type="submit" class = "registrobutton"> GUARDAR </button>
 			</form>
 

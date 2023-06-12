@@ -7,18 +7,14 @@ let perfilController = {
         
         db.Usuario.findByPk(id, {
             include: [
-                {association: "productos"} // Incluye relacioness
-                ],
-                order: [
+                {association: "comentarios"},{association: "productos", order: [
                     ['createdAt', 'ASC']
+                ]} // Incluye relacioness
                 ],
+                
           })
         .then(function(resultado){
-            
-            let productos = resultado.productos
-            //return res.send(productos)
-            
-            return res.render('profile', {datosUsuario: resultado, lista: productos})
+            return res.render('profile', {datosUsuario: resultado})
             
         })
         .catch( function(error){
@@ -32,10 +28,28 @@ let perfilController = {
         if (req.session.user == undefined){
             return res.redirect('/login')
         } else{
-        return res.render('profile-edit', {
-            
-        })}
+            let id = req.session.user.id
+            db.Usuario.findByPk(id)
+            .then(function(resultado){
+                return res.render('profile-edit', {datosUsuario: resultado})
+            })
+            .catch( function(error){
+                console.log(error);
+            })
+        }
     }, 
+    modify: function(req, res) {
+        let form = req.body
+        return res.send(form)
+        db.Producto.update({
+            nombre: form.nombre,
+            email: form.email,
+            
+        }, {where: {
+            id: form.id_producto
+        }})
+        res.redirect(`/perfil/${req.session.user.id}`)
+    },
     seguir: function(req, res){
         let form = req.body 
         let errors = {};
