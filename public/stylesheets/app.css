@@ -45,7 +45,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: white;
+
 }
 
 figure {
@@ -691,6 +691,9 @@ textarea.form-input {
   font-family: "Montserrat", sans-serif;
   margin-left: 50px;
   font-size: 13px;
+}
+.cancelar a{
+  color:white;
 }
 
 .addproductbutton:hover {
