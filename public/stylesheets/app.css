@@ -468,6 +468,10 @@ hr {
   font-size: 1.7em;
 }
 
+.comments .createdAt {
+  font-size: 1.3em;
+}
+
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;
