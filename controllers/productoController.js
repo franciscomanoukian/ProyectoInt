@@ -81,9 +81,29 @@ let productoController = {
         if (req.session.user == undefined){
             return res.redirect('/login')
         } else{
-        res.render ('product-destroy', {
-            idProducto: req.params.id
-        })}
+            let id = req.params.id;
+            db.Producto.findByPk(id,  {
+                include: [
+                    {association: "usuario"},{association: "comentarios", include: [{association: "usuario"}]
+                } ]
+              }).then(function(resultado){
+                if (req.session.user.id == resultado.id_usuario){
+                    return res.render ('product-destroy', {
+                       idProducto: req.params.id
+                })
+               } else{
+                   errors.message = "No puedes borrar un producto que no es tuyo"
+                   res.locals.errors = errors
+                     res.render ('product-destroy', {
+                    idProducto: req.params.id
+             })
+                
+               }
+              }). catch(function(error){
+                return res.send(error)
+              })
+            
+        } 
     },
     procesoDestroy:function (req, res){
        // if (req.session.user.id == )

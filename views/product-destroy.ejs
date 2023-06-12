@@ -22,7 +22,9 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			
+			<h2 class="products-title">Ingresar <% if (locals.errors) {%>
+				<p style="color: red"><%= errors.message%>  </p> 
+			<% } %></h2>
 			<form action="/producto/borrar" method="POST" class="agregarproductoform"> <!-- aca antes decia login.html -->
 				<input name="productoId" type="hidden" placeholder="NOMBRE PRODUCTO" class="inputproduct" value="<%=idProducto%>">
 				<button type="submit" class ="addproductbutton"> BORRAR PRODUCTO </button>
