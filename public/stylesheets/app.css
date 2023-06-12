@@ -92,6 +92,10 @@ hr {
   display: flex;
   align-items: center;
 }
+.parrafo{
+  color: white;
+  font-size: 20px;
+}
 
 .search-form_input {
   border: solid 1px var(--light-gray);
