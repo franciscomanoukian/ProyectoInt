@@ -35,7 +35,10 @@ let searchResultsController = {
                         res.render('search-results', {lista: result2}); 
                     }
                     else{
-                        res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
+                        let errors = {};
+                        errors.message = "NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO"
+                        res.locals.errors = errors;
+                        res.render('search-results')
                     }
                 })
                 .catch( function(error){
