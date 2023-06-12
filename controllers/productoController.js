@@ -30,7 +30,7 @@ let productoController = {
         let imagen = form.imagen
         let descripcion = form.descripcion
         db.Producto.create({
-            id_usuario : req.session.id,  //aca creo que tenemos que hacer un find by PK para encontrar el id del usuario que corresponda con el de session 
+            id_usuario : req.session.user.id,  //aca creo que tenemos que hacer un find by PK para encontrar el id del usuario que corresponda con el de session 
             nombre: nombre,
             descripcion: descripcion,
             imagen: imagen,    
