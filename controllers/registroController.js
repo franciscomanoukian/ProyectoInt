@@ -60,6 +60,11 @@ let registroController = {
                     res.locals.errors = errors;
                     return res.render('register')
                 }
+                if (fotoPerfil == '') {
+                    errors.message = "Debes incluir un link de foto de perfil."
+                    res.locals.errors = errors;
+                    return res.render('register')
+                }
                 
                 
 
