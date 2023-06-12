@@ -77,9 +77,9 @@ let searchResultsController = {
                 res.render('search-user', {lista: resultado});
             }
             else{
-                db.Producto.findAll(filtro2)
+                db.Usuario.findAll(filtro2)
                 .then(function(resultado2){
-                    if (result2.length != 0){
+                    if (resultado2.length != 0){
                         res.render('search-user', {lista: resultado2}); 
                     }
                     else{

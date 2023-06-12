@@ -23,9 +23,9 @@
 				<div class="row">
 					
                     <ul>
-                        <% for (let i=0; i<= lista.length ; i++){%>
-                            <li>lista[i].user</li>
-                        <%}%>
+                        <%for (let i=0; i<lista.length ; i++){ %>
+                            <a href="/perfil/<%=lista[i].id%>"> <p class="parrafo"><%= lista[i].email %></p> </a>
+                            <%}%>
                     </ul>
 					
 				
