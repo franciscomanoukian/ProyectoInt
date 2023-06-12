@@ -57,12 +57,19 @@ let productoController = {
                 id_usuario: req.session.user.id,
                 texto: form.textoComment,
             })
+            if (form.textoComment == null){
+                errors.message = "El comentario no puede estar vacío"
+                res.locals.errors = errors;
+                return res.render('product')
+            }
+
             return res.redirect(`/producto/detalle/id/${req.body.idPost}`)
         } else {
             errors.message = "Debes iniciar sesión para dejar tu comentario"
             res.locals.errors = errors;
             res.render('login')
         }
+
     } 
     
 }

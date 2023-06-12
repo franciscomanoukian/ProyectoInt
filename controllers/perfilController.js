@@ -36,7 +36,7 @@ let perfilController = {
         let form = req.body 
         let errors = {};
 
-        res.send(form)
+        // res.send(form)
 
         // if (req.session.user != undefined){
         //     db.Comentario.create({
