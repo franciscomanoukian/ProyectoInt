@@ -27,10 +27,14 @@ let perfilController = {
 
         
     },
-    edit: function (req, res) {
+    edit: 
+    function (req, res) {
+        if (req.session.user == undefined){
+            return res.redirect('/login')
+        } else{
         return res.render('profile-edit', {
             
-        })
+        })}
     }, 
     seguir: function(req, res){
         let form = req.body 
