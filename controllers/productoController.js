@@ -170,7 +170,7 @@ let productoController = {
         } else{
         return res.render('product-add')
         }
-        
+
     }
     
 }
