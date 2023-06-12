@@ -73,15 +73,15 @@ let searchResultsController = {
         db.Usuario.findAll(filtros) 
         .then(function(resultado){
             if (resultado.length != 0){
-                res.send(resultado)
+                //res.send(resultado[1])
                 res.render('search-user', {lista: resultado});
             }
             else{
                 db.Usuario.findAll(filtros2)
                 .then(function(resultado2){
                     if (resultado2.length != 0){
-                        res.send(resultado2)
-                        //res.render('search-user', {lista: resultado2}); 
+                       // res.send(resultado2[0].email)
+                        res.render('search-user', {lista: resultado2}); 
                     }
                     else{
                         res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
