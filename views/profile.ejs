@@ -36,9 +36,13 @@
 					<% if (locals.user == undefined) {%>
 							 
 						<% } else if (locals.user.id != datosUsuario.id) {%>
-						<a class="btn mt-3 ml-4" href="" class ="botonseguir">SEGUIR</a>
+							<form class="form" action="/perfil/seguir" method="POST"> 
+								<button type="submit" class="btn mt-3 ml-4" class="botonseguir">SEGUIR</button> 
+								<input class="form-input" name="seguir" type="hidden" value="<%= datosUsuario.id%>" placeholder="">
+							</form>
+
 					<% } %>
-					
+
 				</div>
 				<div>
 					<ul class="">

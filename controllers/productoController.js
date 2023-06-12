@@ -7,9 +7,13 @@ let productoController = {
         db.Producto.findByPk(id, {
             include: [
                 {association: "usuario"},{association: "comentarios"} // Incluye relacioness
-                ]
+                ],
+                order: [
+                    ['createdAt', 'DESC']
+                ],
           })
         .then(function(resultado){
+            // res.send(resultado)
             return res.render('product', {result: resultado});
             
         })
