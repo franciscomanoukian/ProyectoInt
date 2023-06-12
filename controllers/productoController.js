@@ -40,7 +40,8 @@ let productoController = {
         })
         
     },
-    modify: function(req, res){
+    modify: 
+    function(req, res){
         let form = req.body
         
         db.Producto.update({
@@ -53,7 +54,8 @@ let productoController = {
         res.redirect(`/perfil/${req.session.user.id}`)
 
     },
-    add: function (req, res) {
+    add: 
+     function (req, res) {
         let form = req.body
         let nombre = form.nombre
         let imagen = form.imagen
@@ -76,9 +78,12 @@ let productoController = {
     
 
     },  destroy: function(req, res){
+        if (req.session.user == undefined){
+            return res.redirect('/login')
+        } else{
         res.render ('product-destroy', {
             idProducto: req.params.id
-        })
+        })}
     },
     procesoDestroy:function (req, res){
        // if (req.session.user.id == )
