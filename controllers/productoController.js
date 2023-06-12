@@ -33,13 +33,18 @@ let productoController = {
         let nombre = form.nombre
         let imagen = form.imagen
         let descripcion = form.descripcion
+        //return res.send(req.body)
         db.Producto.create({
             id_usuario : req.session.user.id,  //aca creo que tenemos que hacer un find by PK para encontrar el id del usuario que corresponda con el de session 
             nombre: nombre,
             descripcion: descripcion,
             imagen: imagen,    
-            //esta rompiendo por los valores de created y updated at creo
+            
 
+        })
+        .then()
+        .catch(function(errors){
+            return errors
         })
     
         //return res.render('product-add', {
