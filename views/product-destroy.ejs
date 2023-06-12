@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+
+<body>
+	<!-- Header -->
+	<% if (locals.user != undefined) {%>
+		<%- include("./partials/headerLogueado") %> 
+	<% } else {%>
+		<%- include("./partials/headerNoLogueado") %>
+	<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Borrar productos</h2>
+				<strong><p class="product-detail-description"><a href="/" >CANCELAR</a></p></strong>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+
+			<form action="/producto/borrar" method="POST" class="agregarproductoform"> <!-- aca antes decia login.html -->
+				<label class="textproduct" >ID DEL PRODUCTO QUE DESEA BORRAR</label><input name="nombre" type="text" placeholder="NOMBRE PRODUCTO" class="inputproduct" >
+				<button type="submit" class ="addproductbutton"> GUARDAR CAMBIOS </button>
+			</form>
+
+			
+
+			<img src="/images/greenvans.jpeg" class ="fotoregistro2">
+
+
+	<!-- footer -->
+	<%- include("./partials/footer") %>
+	<!-- /footer -->
+</body>
+
+</html>
