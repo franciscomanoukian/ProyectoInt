@@ -82,8 +82,11 @@ let searchResultsController = {
                     if (resultado2.length != 0){
                         res.render('search-user', {lista: resultado2}); 
                     }
-                    else{
-                        res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
+                    else {
+                        let errors = {};
+                        errors.message = "NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO"
+                        res.locals.errors = errors;
+                        res.render('search-user')
                     }
                 })
                 .catch( function(error){
@@ -94,7 +97,7 @@ let searchResultsController = {
         .catch( function(error){
             console.log(error);
         })
-
+        
 
     }
 }
