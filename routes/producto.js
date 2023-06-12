@@ -9,6 +9,8 @@ router.post('/guardarCambios', productoController.modify)
 router.get('/borrar/:id', productoController.destroy)
 router.post('/borrar', productoController.procesoDestroy)
 router.post('/comment', productoController.comment)
+
+router.get('/add', productoController.showAdd)
   
 module.exports = router;
   

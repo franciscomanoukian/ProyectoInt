@@ -142,7 +142,16 @@ let productoController = {
             res.render('login')
         }
 
-    } 
+    }, 
+    showAdd: function(req, res) {
+
+        if (req.session.user == undefined){
+            return res.redirect('/login')
+        } else{
+        return res.render('product-add')
+        }
+        
+    }
     
 }
 module.exports = productoController
