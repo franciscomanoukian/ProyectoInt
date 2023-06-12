@@ -43,14 +43,14 @@ let productoController = {
             
 
         })
-        .then()
+        .then(
+            res.redirect(`/perfil/${req.session.user.id}`)
+        )
         .catch(function(errors){
             return errors
         })
     
-        //return res.render('product-add', {
-        //    datosUsuario: db.usuario
-     //   })
+
     }, 
     comment: function(req, res){
         let form = req.body 
