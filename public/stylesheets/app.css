@@ -119,6 +119,13 @@ hr {
   cursor: pointer;
 }
 
+.link-profile {
+  color: #999999;
+  padding-top: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
