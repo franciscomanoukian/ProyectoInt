@@ -81,17 +81,40 @@ let productoController = {
         let form = req.body 
         let errors = {};
 
+        let id = req.params.id
+
         if (req.session.user != undefined){
+            if (form.textoComment == ""){
+                errors.message = "El comentario no puede estar vacío"
+                res.locals.errors = errors;
+
+                db.Producto.findByPk(id, {
+                    include: [
+                        {association: "usuario"},{association: "comentarios", include: [{association: "usuario"}]
+                    } // Incluye relacioness
+                        ],
+                        order: [
+                            ['createdAt', 'DESC']
+                        ],
+                  })
+                .then(function(resultado){
+                    // res.send(resultado)
+                    return res.render('product', {result: resultado});
+                    
+                })
+                .catch( function(error){
+                    console.log(error);
+                })
+                
+
+            } else {
             db.Comentario.create({
                 id_post: form.idPost,
                 id_usuario: req.session.user.id,
                 texto: form.textoComment,
             })
-            if (form.textoComment == null){
-                errors.message = "El comentario no puede estar vacío"
-                res.locals.errors = errors;
-                return res.render('product')
             }
+            
 
             return res.redirect(`/producto/detalle/id/${req.body.idPost}`)
         } else {
