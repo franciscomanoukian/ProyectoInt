@@ -51,6 +51,7 @@ let searchResultsController = {
     },
     showUsers: function(req, res) {
         let busqueda = req.query.search
+        if (busqueda != ""){
         let filtro = {
             where: [{nombre: {[op.like]: `%${busqueda}%`}}],
             order: [
@@ -96,7 +97,13 @@ let searchResultsController = {
         })
         .catch( function(error){
             console.log(error);
-        })
+        })}
+        else{
+            let errors = {};
+            errors.message = "DEBES COMPLETAR EL CAMPO DE BUSQUEDA SI DESEA ENCONTRAR UN USUARIO"
+            res.locals.errors = errors;
+            res.render('search-user')
+        }
         
 
     }
