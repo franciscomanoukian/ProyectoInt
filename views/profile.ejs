@@ -26,7 +26,7 @@
 						<% if (locals.user == undefined) {%>
 							 
 						<% } else if (locals.user.id == datosUsuario.id) {%>
-							<a href="/perfil/editar"> <!-- aca no se porq decia profile-edit.html -->
+							<a href="/perfil/editar/<%= datosUsuario.id%>"> <!-- aca no se porq decia profile-edit.html -->
 								<i class="fas fa-cog"></i>
 							</a> 
 						<% } %>

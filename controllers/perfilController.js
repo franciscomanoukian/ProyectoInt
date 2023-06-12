@@ -41,6 +41,7 @@ let perfilController = {
     modify: function(req, res) {
         let form = req.body
         
+
         db.Usuario.update({
             nombre: form.nombre,
             email: form.email,
@@ -51,7 +52,10 @@ let perfilController = {
         }, {where: {
             id: form.id
         }})
-        res.redirect(`/perfil/id/${req.session.user.id}`)
+        let errors = {};
+        errors.message = "Debes volver a loguearte luego de modificar tu información."
+        return res.redirect('/login/logout')
+        
     },
     seguir: function(req, res){
         let form = req.body 
