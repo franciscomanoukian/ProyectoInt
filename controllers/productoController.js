@@ -51,7 +51,7 @@ let productoController = {
         }, {where: {
             id: form.id_producto
         }})
-        res.redirect(`/perfil/${req.session.user.id}`)
+        res.redirect(`/perfil/id/${req.session.user.id}`)
 
     },
     add: 
@@ -70,7 +70,7 @@ let productoController = {
 
         })
         .then(
-            res.redirect(`/perfil/${req.session.user.id}`)
+            res.redirect(`/perfil/id/${req.session.user.id}`)
         )
         .catch(function(errors){
             return errors
