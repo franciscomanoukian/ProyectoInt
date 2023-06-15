@@ -21,7 +21,9 @@
 			<!-- Show the "ultimos" products -->
 			<div class="container products-wrapper">
 				<div class="row">
-					
+					<h2 class="products-title"> <% if (locals.errors) {%>
+                        <p style="color: red"><%= errors.message%>  </p> </h2>
+                    <% } else{ %>	
 					<%for (let i=0; i<lista.length; i++){ %>
 						<div class="col-12 col-sm-6 col-lg-3">
 						
@@ -40,6 +42,7 @@
 							</section>
 							
 						</div>
+						<% } %>
 					<%}%>
 				
 

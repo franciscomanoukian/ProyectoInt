@@ -21,7 +21,7 @@ let searchResultsController = {
                 {association: "usuario"},{association: "comentarios"} // Incluye relacioness
                 ]
         }
-
+        if(busqueda.length >0){
         db.Producto.findAll(filtro) 
         .then(function(result){
             if (result.length != 0){
@@ -35,7 +35,10 @@ let searchResultsController = {
                         res.render('search-results', {lista: result2}); 
                     }
                     else{
-                        res.send("NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO")
+                        let errors = {};
+                        errors.message = "NO HEMOS ENCONTRADO RESULTADOS PARA SU BUSQUEDA, POR FAVOR INTENTELO DE NUEVO"
+                        res.locals.errors = errors;
+                        res.render('search-results')
                     }
                 })
                 .catch( function(error){
@@ -45,7 +48,13 @@ let searchResultsController = {
         })
         .catch( function(error){
             console.log(error);
-        })
+        })}
+        else{
+            let errors = {};
+                        errors.message = "NO PUEDE REALIZAR UNA BUSQUEDA DE UN CAMPO VACÍO"
+                        res.locals.errors = errors;
+                        res.render('search-results')
+        }
 
 
     },
@@ -69,7 +78,7 @@ let searchResultsController = {
                 {association: "productos"},{association: "comentarios"} // Incluye relacioness
                 ]
         }
-
+        if (busqueda.length > 0){
         db.Usuario.findAll(filtro) 
         .then(function(resultado){
             if (resultado.length != 0){
@@ -96,7 +105,13 @@ let searchResultsController = {
         })
         .catch( function(error){
             console.log(error);
-        })
+        })}
+        else{
+            let errors = {};
+                        errors.message = "NO PUEDE BUSCAR USUARIOS CON EL CAMPO VACÍO"
+                        res.locals.errors = errors;
+                        res.render('search-user')
+        }
         
 
     }
