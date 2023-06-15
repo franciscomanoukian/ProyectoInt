@@ -50,8 +50,12 @@ let productoController = {
             descripcion: form.descripcion
         }, {where: {
             id: form.id_producto
-        }})
-        res.redirect(`/perfil/id/${req.session.user.id}`)
+        }}).then( 
+            res.redirect(`/perfil/id/${req.session.user.id}`)
+            ).catch(function(error){
+                console.log(error)
+            })
+       
 
     },
     add: 

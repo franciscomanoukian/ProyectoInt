@@ -51,7 +51,10 @@ let perfilController = {
             
         }, {where: {
             id: form.id
-        }})
+        }}).then(
+        ).catch(function(error){
+            console.log(error)
+        })
         let errors = {};
         errors.message = "Debes volver a loguearte luego de modificar tu información."
         return res.redirect('/login/logout')

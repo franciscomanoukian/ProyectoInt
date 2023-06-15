@@ -71,6 +71,10 @@ let registroController = {
                     fecha: fechaNac,
                     dni: dni,
                     nombre: nombre
+                }).then(
+
+                ).catch(function(error){
+                    console.log(error)
                 })
 
                 // Redireccionamos a Login
