@@ -82,6 +82,8 @@ let productoController = {
     
 
     },  destroy: function(req, res){
+        let errors = {};
+        
         if (req.session.user == undefined){
             return res.redirect('/login')
         } else{
@@ -104,7 +106,7 @@ let productoController = {
                 
                }
               }). catch(function(error){
-                return res.send(error)
+                console.log(error)
               })
             
         } 
