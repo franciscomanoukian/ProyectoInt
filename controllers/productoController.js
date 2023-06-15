@@ -24,24 +24,34 @@ let productoController = {
         
     },
     edit: function (req, res) {
-        let id = req.params.id
-
-        db.Producto.findByPk(id)
-        .then(function(resultado){
+        let errors = {};
+        if (req.session.user == undefined){
             
-            res.render('product-edit', {
-                datosProducto: resultado
+            errors.message = "Debes loguearte para editar un producto"
+            res.locals.errors = errors;
+            return res.render('login')
+        } else{
+            let id = req.params.id
+
+            db.Producto.findByPk(id)
+            .then(function(resultado){
+                if (req.session.user.id != resultado.id_usuario) {
+                    return res.redirect(`/perfil/id/${req.session.user.id}`)
+                } else {
+                res.render('product-edit', {
+                    datosProducto: resultado
+                })
+                }
             })
-
-            
-        })
-        .catch( function(error){
-            console.log(error);
-        })
+            .catch( function(error){
+                console.log(error);
+            })
+        }
+        
         
     },
-    modify: 
-    function(req, res){
+    modify: function(req, res){
+        
         let form = req.body
         
         db.Producto.update({
@@ -81,11 +91,14 @@ let productoController = {
         })
     
 
-    },  destroy: function(req, res){
+    },  
+    destroy: function(req, res){
         let errors = {};
         
         if (req.session.user == undefined){
-            return res.redirect('/login')
+                errors.message = "Debes loguearte para eliminar un producto"
+                res.locals.errors = errors;
+                return res.render('login')  
         } else{
             let id = req.params.id;
             db.Producto.findByPk(id,  {
