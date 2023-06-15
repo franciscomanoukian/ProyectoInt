@@ -65,13 +65,13 @@ let perfilController = {
                 if (form.contra == '') {
                     contraNueva = resultado.contraseña
                 }
-                if (form.contra.length > 1 && form.contra.length < 3) {
+                if (form.contra.length > 0 && form.contra.length < 3) {
                     contraNueva = resultado.contraseña
                     errors.message = "La contraseña debe tener más de 3 caracteres."
                     res.locals.errors = errors;
                     return res.render('profile-edit', {datosUsuario: resultado})
                 }
-                if (form.contra.length > 3) {
+                if (form.contra.length >= 3) {
                     contraNueva = bcrypt.hashSync(contraNueva, 10)
                 }
         
