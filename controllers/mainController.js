@@ -6,8 +6,8 @@ let mainController = {
         db.Producto.findAll({
             include: [
                 {association: "usuario"},{association: "comentarios"} // Incluye relacioness
-                ]
-          }, {order: [
+                ],
+          order: [
             ['createdAt', 'DESC']]}).then( function(result){
                 return res.render('home', {
                     lista: result //esto busca y envia los datos y los manipulamos en el ejs con variable lista
@@ -17,19 +17,6 @@ let mainController = {
                   console.log(error);
               })
         
-    },
-    imprimirDb: function(req, res){
-        db.Producto.findAll({
-            include: [
-                {association: "usuario"},{association: "comentarios"} // Incluye relacioness
-                ]
-          }).then( function(result){
-                  return res.send(result);
-                  
-              })
-              .catch( function(error){
-                  console.log(error);
-              })
     }
    
 }
