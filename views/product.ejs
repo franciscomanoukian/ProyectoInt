@@ -40,7 +40,7 @@
 					<%for (let i=0; i<result.comentarios.length; i++){ %>
 						<section class="comments">
 							<article>
-								<img src="https://via.placeholder.com/35" alt="">
+								<img src="<%= result.comentarios[i].usuario.foto_perfil %>" alt="">
 								<div class="data">
 									<p class="user">
 									<strong> <a href="/perfil/id/<%= result.comentarios[i].id_usuario %>"> <%= result.comentarios[i].usuario.nombre %>:</a> </strong> 
