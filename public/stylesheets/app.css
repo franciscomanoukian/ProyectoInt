@@ -336,6 +336,10 @@ hr {
   padding: 15px 0;
 }
 
+.errors{
+  margin-left:  150px;
+}
+
 
 /*====== Product Detail ======*/
 .product-detail {
