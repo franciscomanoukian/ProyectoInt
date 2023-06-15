@@ -215,6 +215,7 @@ hr {
 
 .product-box a {
   display: block;
+  font-size: 20px;
 }
 
 .product-box_image {
@@ -231,10 +232,11 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  font-size: 15px;
 }
 
 .product-box_data h2 {
-  font-size: 2.4em;
+  font-size: 30px;
   font-weight: 300;
   margin: 0;
   color: #666666;
@@ -249,7 +251,7 @@ hr {
 }
 
 .product-box_data p {
-  font-size: 1.5em;
+  font-size: 15px;
   width: 100%;
   color: var(--gray);
   margin: 0;
@@ -747,6 +749,7 @@ textarea.form-input {
 
   .main-footer {
     padding: 40px 0;
+    font-size: 10px;
   }
 
   .footer-data {
