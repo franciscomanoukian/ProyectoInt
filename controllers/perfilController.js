@@ -23,21 +23,27 @@ let perfilController = {
 
         
     },
-    edit: 
-    function (req, res) {
+    edit: function (req, res) {
         if (req.session.user == undefined){
-            return res.redirect('/login')
+            let errors = {}
+            errors.message = "Debes loguearte para editar tu perfil"
+            res.locals.errors = errors;
+            return res.render('login')
         } else{
+            res.send(req.params.id)
             let id = req.session.user.id
             db.Usuario.findByPk(id)
             .then(function(resultado){
+                if (id != req.params.id) {
+                    return res.redirect(`/perfil/id/${req.session.user.id}`)
+                } else {
                 return res.render('profile-edit', {datosUsuario: resultado})
-            })
+            }})
             .catch( function(error){
                 console.log(error);
-            })
-        }
-    }, 
+            })}
+        }, 
+        
     modify: function(req, res) {
         let form = req.body
         
@@ -55,30 +61,11 @@ let perfilController = {
         ).catch(function(error){
             console.log(error)
         })
+
         let errors = {};
         errors.message = "Debes volver a loguearte luego de modificar tu información."
         return res.redirect('/login/logout')
         
-    },
-    seguir: function(req, res){
-        let form = req.body 
-        let errors = {};
-
-        // res.send(form)
-
-        // if (req.session.user != undefined){
-        //     db.Comentario.create({
-        //         id_post: form.idPost,
-        //         id_usuario: req.session.user.id,
-        //         texto: form.textoComment,
-        //     })
-        //     return res.redirect(`/producto/detalle/id/${req.body.idPost}`)
-        // } else {
-        //     errors.message = "Debes iniciar sesión para dejar tu comentario"
-        //     res.locals.errors = errors;
-        //     res.render('login')
-        // }
-
     }
 }
 

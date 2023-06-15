@@ -29,7 +29,7 @@ let productoController = {
             
             errors.message = "Debes loguearte para editar un producto"
             res.locals.errors = errors;
-            return res.render('login')
+            return res.render('login') // Aca pondriamos redirect pero queremos mostrar el error en la pagina login
         } else{
             let id = req.params.id
 

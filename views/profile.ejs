@@ -32,22 +32,12 @@
 						<% } %>
 						
 					</h1>
-					<!-- IF: El usuario que esta en sesion es distinto al usuario que se esta mostrando, mostramos boton seguir -->
-					<% if (locals.user == undefined) {%>
-							 
-						<% } else if (locals.user.id != datosUsuario.id) {%>
-							<form class="form" action="/perfil/seguir" method="POST"> 
-								<button type="submit" class="btn mt-3 ml-4" class="botonseguir">SEGUIR</button> 
-								<input class="form-input" name="seguir" type="hidden" value="<%= datosUsuario.id%>" placeholder="">
-							</form>
-
-					<% } %>
+					
 
 				</div>
 				<div>
 					<ul class="">
 						<li><%=datosUsuario.productos.length%> productos</li>
-						<li>X seguidores</li>
 						<li><%=datosUsuario.comentarios.length%> comentarios</li>
 					</ul>
 				</div>
