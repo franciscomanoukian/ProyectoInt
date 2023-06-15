@@ -686,7 +686,9 @@ textarea.form-input {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
+  margin: 10px;
 }
+
 .cancelar{
   padding: 10px 20px;;
   color: white;
