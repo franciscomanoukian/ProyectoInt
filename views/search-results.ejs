@@ -15,19 +15,22 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
+
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 
-			<!-- Show the "ultimos" products -->
-				<h2 class="products-title"> <% if (locals.errors) {%>
-                <p style="color: red"><%= errors.message%> </p> </h2>
-                    <% } else{ %>	
+			<% if (locals.errors) {%>
+				<p class="products-title" style="color: red">
+			<%= errors.message%> </p>
+                <% } 
 
-					<div class="col-12 col-sm-6 col-lg-3">
-						
-
+				else { %>	
+			
 					<%for (let i=0; i<lista.length; i++){ %>
+
+						<div class="col-12 col-sm-6 col-lg-3">
+						
 						<section class="product-box">
 							<a href="/producto/detalle/id/<%=lista[i].id%>"> 
 									<figure class="product-box_image">
@@ -41,13 +44,14 @@
 									</article>
 								</a>
 						</section>
+						</div>
 							
 
 						<% } %>
 					<%}%>	
 
-					</div>
 		</div>
+		
 	</div> 
 	<!-- footer -->
 	<%- include("./partials/footer") %>
