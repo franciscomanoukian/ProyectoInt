@@ -22,7 +22,7 @@
 			
 			<form action="/registrarme/guardar" method="POST" class="registroform"> <!-- aca antes decia login.html -->
 				<% if (locals.errors) {%>
-					<p style="color: red"><%= errors.message%></p> 
+					<p class="products-title" style="color: red"><%= errors.message%> </p> 
 				<% } %>
 				<label class = "registroformlabel">EMAIL</label><input name="email" type="email" placeholder="EMAIL" class="registroinput">
 				<label class = "registroformlabel">NOMBRE DE USUARIO</label><input name="usuario" type="text" placeholder="USUARIO" class="registroinput">

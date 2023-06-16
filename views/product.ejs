@@ -15,7 +15,7 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<% if (locals.errors) {%>
-				<p style="color: red"><%= errors.message%>  </p> 
+				<p class="products-title" style="color: red"><%= errors.message%> </p> 
 			<% } %>
 			<h2 class="products-title"><%= result.nombre %></h2> 
 			<p class="product-detail-description">

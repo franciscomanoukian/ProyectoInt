@@ -14,9 +14,9 @@
 
 	<!-- Novedades -->
 
-	<h2 class="products-title"> <% if (locals.errors) {%>
+	<% if (locals.errors) {%>
 		<p class="errors" style="color: red"><%= errors.message%>  </p> 
-	<% } %></h2>
+	<% } %>
 
 	<% if (locals.errors == undefined) {%> 
 

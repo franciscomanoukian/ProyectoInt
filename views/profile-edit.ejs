@@ -16,9 +16,12 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil<% if (locals.errors) {%>
-					<strong><p style="color: red"><%= errors.message%>  </p> </strong></h2>
+				<h2 class="products-title">Editar mi perfil </h2>
+				
+				<% if (locals.errors) {%>
+					<p class="products-title" style="color: red"><%= errors.message%> </p> 
 				<% } %>
+				
 			</div>
 			<!-- Show the "ultimos" products -->
 
